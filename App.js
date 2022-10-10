@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Image, View } from 'react-native';
+import ImagePage from './views/ImagePage.js';
 
+const SELECTED_IMAGE = 1
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>hello world</Text>
-      <StatusBar style="auto" />
+      <ImagePage selectedImageID = {SELECTED_IMAGE}  ></ImagePage>
     </View>
   );
 }
