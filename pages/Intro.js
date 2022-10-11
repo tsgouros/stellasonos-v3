@@ -7,11 +7,11 @@ import { ContainerStyles, ButtonStyles, TextStyles } from '../utils/styles';
 export default function Intro({ navigation }) {
   return (
     <View style={ContainerStyles.defaultContainer}>
-      <Text style={TextStyles.blackText}>Just a placeholder for the eventual intro screen... By default, this opens every time the app is started.</Text>
+      <Text style={TextStyles.blackTextSmall}>Just a placeholder for the eventual intro screen... By default, this opens every time the app is started.</Text>
       <TouchableOpacity
         onPress={() => navigation.navigate('Home')}
         style={ButtonStyles.blackButton}>
-        <Text style={TextStyles.whiteText}>Go to Home page</Text>
+        <Text style={TextStyles.whiteTextSmall}>Go to Home page</Text>
       </TouchableOpacity>
 
       {/* Alternative button design */}

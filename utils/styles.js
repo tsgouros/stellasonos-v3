@@ -7,6 +7,15 @@ export const ContainerStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  defaultCard: {
+    flex: 1,
+    borderRadius: 25,
+    borderWidth: 5,
+    borderColor: "#E8E8E8",
+    justifyContent: "center",
+    backgroundColor: "white"
+  },
 });
 
 export const ButtonStyles = StyleSheet.create({
@@ -19,15 +28,24 @@ export const ButtonStyles = StyleSheet.create({
 });
 
 export const TextStyles = StyleSheet.create({
-  blackText: {
+  blackTextSmall: {
     fontSize: 18,
     color: "#111",
     justifyContent: 'center',
     textAlign: 'center',
     maxWidth: '80%',
+    backgroundColor: "transparent"
   },
 
-  whiteText: {
+  blackTextLarge: {
+    fontSize: 50,
+    color: "#111",
+    justifyContent: 'center',
+    textAlign: "center",
+    backgroundColor: "transparent"
+  },
+
+  whiteTextSmall: {
     fontSize: 18,
     color: '#fff',
   },
