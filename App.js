@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, View } from 'react-native';
 import ImagePage from './views/ImagePage.js';
 
-const SELECTED_IMAGE = 3
+const SELECTED_IMAGE = 2
 export default function App() {
   return (
     <View style={styles.container}>
