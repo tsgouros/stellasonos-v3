@@ -6,9 +6,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Utils and other pages
-import { ContainerStyles, ButtonStyles, TextStyles } from './utils/styles';
 import Intro from './pages/Intro';
 import Home from './pages/Home';
+import Placeholder from './pages/Placeholder';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,8 +22,11 @@ export default function App() {
         }}>
         <Stack.Screen name="Intro" component={Intro} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Placeholder" component={Placeholder} />
       </Stack.Navigator>
     </NavigationContainer>
+
+    // TODO: Add ImagePage to the stack navigator
   );
 }
 

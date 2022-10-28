@@ -10,11 +10,12 @@ export const ContainerStyles = StyleSheet.create({
 
   defaultCard: {
     flex: 1,
-    borderRadius: 25,
+    borderRadius: 15,
     borderWidth: 5,
     borderColor: "#E8E8E8",
     justifyContent: "center",
-    backgroundColor: "white"
+    backgroundColor: "white",
+    overflow: 'hidden',
   },
 });
 
@@ -37,6 +38,14 @@ export const TextStyles = StyleSheet.create({
     backgroundColor: "transparent"
   },
 
+  blackTextMedium: {
+    fontSize: 35,
+    color: "#111",
+    justifyContent: 'center',
+    textAlign: "center",
+    backgroundColor: "transparent"
+  },
+
   blackTextLarge: {
     fontSize: 50,
     color: "#111",
@@ -48,5 +57,14 @@ export const TextStyles = StyleSheet.create({
   whiteTextSmall: {
     fontSize: 18,
     color: '#fff',
+  },
+});
+
+export const ImageStyles = StyleSheet.create({
+  defaultImage: {
+    width: 300,
+    height: 300,
+    resizeMode: 'cover',
+    marginTop: 20,
   },
 });

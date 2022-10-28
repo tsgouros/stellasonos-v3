@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 
 // Utils and other pages
 import { ContainerStyles, ButtonStyles, TextStyles } from '../utils/styles';
