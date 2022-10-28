@@ -21,8 +21,22 @@ export default function ImagePage(props) {
 
   const translateX = useRef(new Animated.Value(0));
   const translateY = useRef(new Animated.Value(0));
-  translateX.current.addListener(({ value }) => setCurrentX(value));
-  translateY.current.addListener(({ value }) => setCurrentY(value));
+  translateX.current.addListener(({ value }) => {
+    if (value < 0) {
+      translateX.current.setValue(0); // Move red dot
+      setCurrentX(0);               // Move the pointer
+    } else {
+      setCurrentX(value);
+    };
+  });
+  translateY.current.addListener(({ value }) => {
+    if (value < 0) {
+      translateY.current.setValue(0);
+      setCurrentY(0);
+    } else {
+      setCurrentY(value);
+    }
+  });
 
   console.log("X", translateX);
   console.log("Y", translateY);
@@ -77,26 +91,25 @@ export default function ImagePage(props) {
       <View style={styles.imageContainer}>
         <ImageBackground
           style={styles.tinyLogo}
-          source={{ uri: images.images[props.selectedImageID].src }}
-          
-        ><PanGestureHandler onGestureEvent={onPanGestureEvent}>
-        <Animated.View
-          style={[
-            styles.square,
-            {
-              transform: [
+          source={{ uri: images.images[props.selectedImageID].src }}>
+          <PanGestureHandler onGestureEvent={onPanGestureEvent}>
+            <Animated.View
+              style={[
+                styles.square,
                 {
-                  translateX: translateX.current,
+                  transform: [
+                    {
+                      translateX: translateX.current,
+                    },
+                    {
+                      translateY: translateY.current,
+                    },
+                  ],
                 },
-                {
-                  translateY: translateY.current,
-                },
-              ],
-            },
-          ]}
-        />
-      </PanGestureHandler></ImageBackground>
-        
+              ]}
+            />
+          </PanGestureHandler>
+        </ImageBackground>
       </View>
       <StatusBar style="auto" />
       <View style={styles.toolBar}>
