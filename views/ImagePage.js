@@ -1,66 +1,92 @@
-import { StatusBar } from "expo-status-bar";
+import React, { useRef, useState } from "react";
 import {
-  Alert,
-  Modal,
-  StyleSheet,
   Animated,
-  Image,
-  Text,
-  Pressable,
   View,
+  StyleSheet,
+  PanResponder,
+  Modal,
+  Alert,
+  Text,
   ImageBackground,
+  Pressable,
 } from "react-native";
-import { useRef, useCallback, useState } from "react";
 import images from "../images.json";
+import { Dimensions } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { PanGestureHandler } from "react-native-gesture-handler";
+
 
 export default function ImagePage(props) {
+  const pan = useRef(new Animated.ValueXY()).current;
   const [currentX, setCurrentX] = useState(0);
   const [currentY, setCurrentY] = useState(0);
 
-  const translateX = useRef(new Animated.Value(0));
-  const translateY = useRef(new Animated.Value(0));
-  translateX.current.addListener(({ value }) => {
-    if (value < 0) {
-      translateX.current.setValue(0); // Move red dot
-      setCurrentX(0);               // Move the pointer
-    } else {
-      setCurrentX(value);
-    };
-  });
-  translateY.current.addListener(({ value }) => {
-    if (value < 0) {
-      translateY.current.setValue(0);
-      setCurrentY(0);
-    } else {
-      setCurrentY(value);
-    }
-  });
+  const xPadding = 45;
 
-  console.log("X", translateX);
-  console.log("Y", translateY);
-  const onPanGestureEvent = useCallback(
-    Animated.event(
-      [
-        {
-          nativeEvent: {
-            translationX: translateX.current,
-            translationY: translateY.current,
-          },
-        },
-      ],
-      { useNativeDriver: true }
-    )
-  );
+  // calculating actual width and height of touch area
+  const xMax = Dimensions.get("window").width / 2 - xPadding;
+  const yMax = Dimensions.get("window").height / 6 + 125;
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onStartShouldSetPanResponderCapture: () => true,
+      onPanResponderGrant: (e, r) => {
+        // prevent the dot from moving out of bounds with simple ternary operators
+
+        pan.setOffset({
+          x:
+            pan.x._value > xMax
+              ? xMax
+              : pan.x._value < -xMax
+              ? -xMax
+              : pan.x._value,
+          y:
+            pan.y._value > yMax
+              ? yMax
+              : pan.y._value < -yMax
+              ? -yMax
+              : pan.y._value,
+        });
+      },
+      onPanResponderMove: Animated.event([null, { dx: pan.x, dy: pan.y }], {
+        useNativeDriver: false,
+      }),
+
+      onPanResponderRelease: (e, r) => {
+        pan.flattenOffset();
+        setCurrentY(pan.y._value);
+        setCurrentX(pan.x._value);
+      },
+    })
+  ).current;
+
+  // update current x and y values in the state for later
+  pan.x.addListener(({ value }) => {
+    setCurrentX(value);
+  });
+  pan.y.addListener(({ value }) => {
+    setCurrentY(value);
+  });
   const handleX = (delta) => {
-    translateX.current.setValue(currentX + delta);      
+    var newX =
+      currentX + delta > xMax
+        ? xMax
+        : currentX + delta < -xMax
+        ? -xMax
+        : currentX + delta;
+    pan.setValue({ x: newX, y: currentY });
   };
   const handleY = (delta) => {
-    translateY.current.setValue(currentY + delta);
+    var newY =
+      currentY + delta > yMax
+        ? yMax
+        : currentY + delta < -yMax
+        ? -yMax
+        : currentY + delta;
+    pan.setValue({ x: currentX, y: newY });
   };
-  const [modalVisible, setModalVisible] = useState(false);
 
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.container}>
       <Modal
@@ -87,79 +113,100 @@ export default function ImagePage(props) {
           </View>
         </View>
       </Modal>
-
-      <View style={styles.imageContainer}>
-        <ImageBackground
-          style={styles.tinyLogo}
-          source={{ uri: images.images[props.selectedImageID].src }}>
-          <PanGestureHandler onGestureEvent={onPanGestureEvent}>
-            <Animated.View
-              style={[
-                styles.square,
-                {
-                  transform: [
-                    {
-                      translateX: translateX.current,
-                    },
-                    {
-                      translateY: translateY.current,
-                    },
-                  ],
-                },
-              ]}
-            />
-          </PanGestureHandler>
-        </ImageBackground>
+      <View style={styles.container}>
+        {/* Preventing the dot from going out of bounds       */}
+        <Animated.View
+          style={{
+            transform: [
+              {
+                translateX: pan.x.interpolate({
+                  inputRange: [-xMax, xMax],
+                  outputRange: [-xMax, xMax],
+                  extrapolate: "clamp",
+                }),
+              },
+              {
+                translateY: pan.y.interpolate({
+                  inputRange: [-yMax, yMax],
+                  outputRange: [-yMax, yMax],
+                  extrapolate: "clamp",
+                }),
+              },
+            ],
+          }}
+          {...panResponder.panHandlers}
+        >
+          <View style={styles.box} />
+        </Animated.View>
+        <View style={styles.imageContainer}>
+          <ImageBackground
+            style={styles.tinyLogo}
+            source={{ uri: images.images[props.selectedImageID].src }}
+          ></ImageBackground>
+        </View>
       </View>
-      <StatusBar style="auto" />
-      <View style={styles.toolBar}>
-        <AntDesign
-          onPress={() => handleX(-10)}
-          name="leftcircleo"
-          size={30}
-          color="black"
-        />
-        <AntDesign
-          onPress={() => handleX(10)}
-          name="rightcircleo"
-          size={30}
-          color="black"
-        />
-        <AntDesign
-          onPress={() => handleY(-10)}
-          name="upcircleo"
-          size={30}
-          color="black"
-        />
-        <AntDesign
-          onPress={() => handleY(10)}
-          name="downcircleo"
-          size={30}
-          color="black"
-        />
-        <AntDesign
-          onPress={() => setModalVisible(true)}
-          name="infocirlceo"
-          size={30}
-          color="black"
-        />
+      
+        <View style={styles.toolBar}>
+          <AntDesign
+            onPress={() => handleX(-10)}
+            name="leftcircleo"
+            size={30}
+            color="black"
+          />
+          <AntDesign
+            onPress={() => handleX(10)}
+            name="rightcircleo"
+            size={30}
+            color="black"
+          />
+          <AntDesign
+            onPress={() => handleY(-10)}
+            name="upcircleo"
+            size={30}
+            color="black"
+          />
+          <AntDesign
+            onPress={() => handleY(10)}
+            name="downcircleo"
+            size={30}
+            color="black"
+          />
+          <AntDesign
+            onPress={() => setModalVisible(true)}
+            name="infocirlceo"
+            size={30}
+            color="black"
+          />
+        </View>
       </View>
-    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
+  titleText: {
+    fontSize: 14,
+    lineHeight: 24,
+    fontWeight: "bold",
+  },
+  box: {
+    height: 40,
+    width: 40,
+    backgroundColor: "blue",
+    borderRadius: "50%",
+  },
   imageContainer: {
-    width: 350,
-    height: 450,
+    width: Dimensions.get("window").width - 50,
+    height: Dimensions.get("window").height / 1.3,
     backgroundColor: "#000",
     margin: 0,
+    zIndex: -1,
+    elevation: -1,
+    position: "absolute",
   },
   tinyLogo: {
     flex: 1,
@@ -169,33 +216,20 @@ const styles = StyleSheet.create({
     maxHeight: "100%",
     maxWidth: "100%",
   },
+  absolute: {
+    position: "absolute",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   toolBar: {
     flexDirection: "row",
     justifyContent: "space-evenly",
     width: 350,
-    top: 50,
-  },
-  text: {
-    bottom: 10,
-    width: 250,
-    alignItems: "center",
-    textAlign: "center",
-  },
-  square: {
-    width: 30,
-    height: 30,
-    backgroundColor: "red",
-    marginTop: 0,
-    borderRadius: "50%",
-    opacity: 1,
+    paddingBottom: 30,
+
   },
 
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
-  },
   modalView: {
     margin: 20,
     backgroundColor: "white",
@@ -235,4 +269,11 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "center",
   },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+  },
 });
+
