@@ -50,7 +50,6 @@ function buildCard(image) {
 }
 
 function navigateToImagePage(image, navigation) {
-  // TODO: Change 'Placeholder' to 'ImagePage' when that page is created
-  navigation.navigate('Placeholder', { image: image });
+  navigation.navigate('ImagePage', { image: image });
   console.log('Navigating to Image page with image: ' + image.title);
 }
