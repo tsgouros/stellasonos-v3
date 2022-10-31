@@ -30,11 +30,9 @@ export default function App() {
 
     // TODO: Add ImagePage to the stack navigator
   );
-}
     // <View style={styles.container}>
     //  <ImagePage selectedImageID = {SELECTED_IMAGE}></ImagePage>
     // </View>
-  );
 }
 
 const styles = StyleSheet.create({
