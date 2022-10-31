@@ -14,7 +14,6 @@ import images from "../images.json";
 import { Dimensions } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-
 export default function ImagePage(props) {
   const pan = useRef(new Animated.ValueXY()).current;
   const [currentX, setCurrentX] = useState(0);
@@ -50,6 +49,10 @@ export default function ImagePage(props) {
       },
       onPanResponderMove: Animated.event([null, { dx: pan.x, dy: pan.y }], {
         useNativeDriver: false,
+        onPanResponderRelease: (event, gestureState) => {
+          //After the change in the location
+          console.log(event);
+        },
       }),
 
       onPanResponderRelease: (e, r) => {
@@ -129,7 +132,7 @@ export default function ImagePage(props) {
                 translateY: pan.y.interpolate({
                   inputRange: [-yMax, yMax],
                   outputRange: [-yMax, yMax],
-                  extrapolate: "clamp",b
+                  extrapolate: "clamp",
                 }),
               },
             ],
@@ -138,49 +141,59 @@ export default function ImagePage(props) {
         >
           <View style={styles.circle} />
         </Animated.View>
-        <View style={styles.imageContainer}>
+        <View
+          style={styles.imageContainer}
+          onStartShouldSetResponder={() => true}
+          onResponderMove={(event) => {            
+            pan.setValue({
+              x: event.nativeEvent.locationX - xMax - 20,
+              y: event.nativeEvent.locationY - yMax - 20,
+            });
+            console.log(event.nativeEvent.pageX, event.nativeEvent.pageY, event.nativeEvent.locationX, event.nativeEvent.locationY, yMax, xMax,  );
+          }}
+        >
           <ImageBackground
             style={styles.tinyLogo}
             source={{ uri: images.images[props.selectedImageID].src }}
           ></ImageBackground>
         </View>
       </View>
-      
-        <View style={styles.toolBar}>
-          <AntDesign
-            onPress={() => handleX(-10)}
-            name="leftcircleo"
-            size={30}
-            color="black"
-          />
-          <AntDesign
-            onPress={() => handleX(10)}
-            name="rightcircleo"
-            size={30}
-            color="black"
-          />
-          <AntDesign
-            onPress={() => handleY(-10)}
-            name="upcircleo"
-            size={30}
-            color="black"
-          />
-          <AntDesign
-            onPress={() => handleY(10)}
-            name="downcircleo"
-            size={30}
-            color="black"
-          />
-          <AntDesign
-            onPress={() => setModalVisible(true)}
-            name="infocirlceo"
-            size={30}
-            color="black"
-          />
-        </View>
+
+      <View style={styles.toolBar}>
+        <AntDesign
+          onPress={() => handleX(-10)}
+          name="leftcircleo"
+          size={30}
+          color="black"
+        />
+        <AntDesign
+          onPress={() => handleX(10)}
+          name="rightcircleo"
+          size={30}
+          color="black"
+        />
+        <AntDesign
+          onPress={() => handleY(-10)}
+          name="upcircleo"
+          size={30}
+          color="black"
+        />
+        <AntDesign
+          onPress={() => handleY(10)}
+          name="downcircleo"
+          size={30}
+          color="black"
+        />
+        <AntDesign
+          onPress={() => setModalVisible(true)}
+          name="infocirlceo"
+          size={30}
+          color="black"
+        />
       </View>
+    </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -227,7 +240,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     width: 350,
     paddingBottom: 30,
-
   },
 
   modalView: {
@@ -255,7 +267,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.5,
     shadowRadius: 5,
@@ -276,4 +288,3 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.6)",
   },
 });
-
