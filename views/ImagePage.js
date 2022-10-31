@@ -129,14 +129,14 @@ export default function ImagePage(props) {
                 translateY: pan.y.interpolate({
                   inputRange: [-yMax, yMax],
                   outputRange: [-yMax, yMax],
-                  extrapolate: "clamp",
+                  extrapolate: "clamp",b
                 }),
               },
             ],
           }}
           {...panResponder.panHandlers}
         >
-          <View style={styles.box} />
+          <View style={styles.circle} />
         </Animated.View>
         <View style={styles.imageContainer}>
           <ImageBackground
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontWeight: "bold",
   },
-  box: {
+  circle: {
     height: 40,
     width: 40,
     backgroundColor: "blue",
