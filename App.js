@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 // Navigation-related imports
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,9 +9,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Intro from './pages/Intro';
 import Home from './pages/Home';
 import Placeholder from './pages/Placeholder';
+import ImagePage from './views/ImagePage.js';
 
 const Stack = createNativeStackNavigator();
 
+const SELECTED_IMAGE = 7
 export default function App() {
   return (
     <NavigationContainer>
@@ -29,4 +31,18 @@ export default function App() {
     // TODO: Add ImagePage to the stack navigator
   );
 }
+    // <View style={styles.container}>
+    //  <ImagePage selectedImageID = {SELECTED_IMAGE}></ImagePage>
+    // </View>
+  );
+}
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+  },
+});
