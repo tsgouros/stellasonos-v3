@@ -10,7 +10,7 @@ import {
   ImageBackground,
   Pressable,
 } from "react-native";
-import images from "../images.json";
+
 import { Dimensions } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
