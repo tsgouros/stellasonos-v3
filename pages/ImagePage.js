@@ -14,7 +14,10 @@ import images from "../images.json";
 import { Dimensions } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function ImagePage(props) {
+
+export default function ImagePage({ route, navigation }) {
+  const { image, name } = route.params;
+
   const pan = useRef(new Animated.ValueXY()).current;
   const [currentX, setCurrentX] = useState(0);
   const [currentY, setCurrentY] = useState(0);
@@ -104,8 +107,8 @@ export default function ImagePage(props) {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>
-              {images.images[props.selectedImageID].title}: {"\n"}
-              {images.images[props.selectedImageID].description}
+              {image.title}: {"\n"}
+              {image.description}
             </Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -154,7 +157,7 @@ export default function ImagePage(props) {
         >
           <ImageBackground
             style={styles.tinyLogo}
-            source={{ uri: images.images[props.selectedImageID].src }}
+            source={{ uri: image.src }}
           ></ImageBackground>
         </View>
       </View>
