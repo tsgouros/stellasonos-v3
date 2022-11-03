@@ -1,13 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
+// Navigation-related imports
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+// Utils and other pages
+import Intro from './pages/Intro';
+import Home from './pages/Home';
+import Placeholder from './pages/Placeholder';
+import ImagePage from './pages/ImagePage.js';
+
+const Stack = createNativeStackNavigator();
+
+const SELECTED_IMAGE = 7
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Intro"
+        screenOptions={{
+          headerShown: false  // Hide the app header
+        }}>
+        <Stack.Screen name="Intro" component={Intro} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="ImagePage" component={ImagePage} />
+        {/* <Stack.Screen name="Placeholder" component={Placeholder} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
+    // <View style={styles.container}>
+    //  <ImagePage selectedImageID = {SELECTED_IMAGE}></ImagePage>
+    // </View>
 }
 
 const styles = StyleSheet.create({
@@ -16,5 +40,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
 });
