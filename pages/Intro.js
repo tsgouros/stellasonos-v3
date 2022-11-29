@@ -13,6 +13,12 @@ export default function Intro({ navigation }) {
         style={ButtonStyles.blackButton}>
         <Text style={TextStyles.whiteTextSmall}>Go to Home page</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('VibrationPage')}
+        style={ButtonStyles.blackButton}>
+        <Text style={TextStyles.whiteTextSmall}>Go to Vibration page</Text>
+      </TouchableOpacity>
+
 
       {/* Alternative button design */}
       {/* <Button onPress={() => navigation.navigate('Home')} title="Go to Home page"/> */}
@@ -21,4 +27,3 @@ export default function Intro({ navigation }) {
     </View>
   );
 }
-

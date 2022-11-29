@@ -53,3 +53,4 @@ function navigateToImagePage(image, navigation) {
   navigation.navigate('ImagePage', { image: image });
   console.log('Navigating to Image page with image: ' + image.title);
 }
+
