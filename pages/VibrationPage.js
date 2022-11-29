@@ -4,9 +4,9 @@ import * as Haptics from 'expo-haptics';
 
 
 
-const Separator = () => {
-    return <View style={Platform.OS === "android" ? styles.separator : null} />;
-  }
+// const Separator = () => {
+//     return <View />;
+//   }
   
 export default function VibrationPage({ navigation }) {
   
@@ -28,7 +28,7 @@ export default function VibrationPage({ navigation }) {
         <View>
           <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
         </View>
-        <Separator />
+        {/* <Separator />
         {Platform.OS == "android"
           ? [
               <View>
@@ -45,7 +45,7 @@ export default function VibrationPage({ navigation }) {
               </View>,
               <Separator />
             ]
-          : null}
+          : null} */}
         <Text style={styles.paragraph}>Pattern: {PATTERN_DESC}</Text>
         <Button
           title="Vibrate with pattern"
@@ -57,15 +57,15 @@ setTimeout(() => clearInterval(interval), 5000);
             }
           }
         />
-        <Separator />
+        {/* <Separator /> */}
         <Button
-          title="Vibrate with pattern until cancelled"
-          onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}
+          title="selection haptic"
+          onPress={() => Haptics.selectionAsync()}
         />
-        <Separator />
+        {/* <Separator /> */}
         <Button
-          title="Stop vibration pattern"
-          onPress={() => Vibration.cancel()}
+          title="impact haptic"
+          onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light)}
           color="#FF0000"
         />
       </SafeAreaView>
@@ -94,4 +94,3 @@ setTimeout(() => clearInterval(interval), 5000);
       borderBottomWidth: StyleSheet.hairlineWidth
     }
   });
-  
