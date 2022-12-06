@@ -34,7 +34,75 @@ export default function VibrationPage({ navigation }) {
   // Haptics.impactAsync(Haptics.ImpactFeedbackStyle.heavy ),
   // Haptics.impactAsync(Haptics.ImpactFeedbackStyle.heavy ),
   // Haptics.impactAsync(Haptics.ImpactFeedbackStyle.heavy ),]
+  function wiggle(pattern, type, style) {
+    for (let i = 0; i < pattern.length; i++) {
+      // const interval = setInterval(
+      //      () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.heavy),
+      //      1000
+      //   );
+// it will vibrate for 5 seconds
+      if (style === "impact"){
+        setTimeout(() =>{Haptics.impactAsync(type)}, pattern[i]);
+      }
+      if (style === "selection"){
+        setTimeout(() =>{Haptics.selectionAsync()}, pattern[i]);
+      }
+      if (style === "notification"){
+        setTimeout(() =>{Haptics.notificationAsync(type)}, pattern[i]);
+      }}
+    
+  }
 
+
+
+//     for (let i = 0; i < pattern.length; i++) {
+//       console.log(i, type);
+//       const interval = setInterval(
+//            () => type,
+//            100
+//         );
+// // it will vibrate for 5 seconds
+//         setTimeout(() => clearInterval(interval), pattern[i]);
+//       }    
+
+//     for (let i = 0; i < pattern.length; i++) {
+//       const interval = setInterval(
+//         () => type,
+//             pattern[i]);
+// // it will vibrate for 5 seconds
+//         setTimeout(() => clearInterval(interval), 10000);
+//       }    
+               
+    
+  
+ /* function wiggle(pattern, hapVib, type){
+  if (hapVib == h){
+            for (let i = 0; i < pattern; i++) {
+ // // .           if (selImpNot == selection) {
+                           if (type == )
+                   if (selImpNot == impact) {
+                           if (type == )
+ 
+                   if (selImpNot == notification) {
+                           if (type == warning ) {
+
+                            const interval = setInterval(
+                    () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.warning),
+              100
+            );
+            // it will vibrate for 5 seconds
+            setTimeout(() => clearInterval(interval), 5000);
+                             Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)}
+                           }
+                           if (type == success ) {
+                            
+                           }
+                           if (type == error ) {
+                            
+                           }
+ */
+ 
+  //wiggle([1, 1, 3], h, notification, type)
   const { trigger, stop } = useHaptics();
   React.useEffect(() => {
     // stops the haptic pattern on cleanup
@@ -52,11 +120,14 @@ export default function VibrationPage({ navigation }) {
           style={styles.centered}
           title="Vibrate with trigger"
           onPress={() => {
-            const interval = setInterval(
-              () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.heavy),
-              100
-            );
-            setTimeout(() => clearInterval(interval), 5000);
+            wiggle([2000, 10000, 1000], Haptics.NotificationFeedbackType.Success, "notification")
+
+            // const interval = setInterval(
+            //   () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.heavy),
+            //   100
+            // );
+            // setTimeout(() => clearInterval(interval), 5000);
+
           }}
         >
           <View style={styles.square1} />
@@ -69,7 +140,7 @@ export default function VibrationPage({ navigation }) {
           onPress={() => {
             const interval = setInterval(
               () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light),
-              100
+              500
             );
             // it will vibrate for 5 seconds
             setTimeout(() => clearInterval(interval), 5000);
