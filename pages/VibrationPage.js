@@ -7,8 +7,13 @@ export default function VibrationPage({ navigation }) {
   const ONE_SECOND_IN_MS = 1000;
 
   const PATTERN1 = [100, 10, 100, 10, 100, 10, 100, 10, 100];
-  const PATTERN2 = [100, 100, 1, 1, 1, 1, 1, 100, 100, 1,1, 1, 1, 1];
+  const PATTERN2 = [550, 550];
   const PATTERN3 = [10, 0.1, 10, 0.1, 10,0.1, 10, 0.1, 10, 0.1, 10, 0.1, 10, 0.1];
+  const PATTERN = [
+    1 * 1000,
+    2 * 1000,
+    3 * 1000
+  ];
 
   function delay(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -378,7 +383,7 @@ export default function VibrationPage({ navigation }) {
           style={styles.centered}
           title="Vibrate with trigger"
           onPress={() => {
-            Vibration.vibrate(PATTERN2);
+            Vibration.vibrate(PATTERN3);
           }}
         >
           <View style={styles.squareV} />
