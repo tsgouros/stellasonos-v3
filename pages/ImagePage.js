@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Animated,
   View,
@@ -14,6 +14,12 @@ import {
 import { Dimensions } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
+import Canvas from 'react-native-canvas';
+import SoundImage from "../utils/visual_components/SoundImage";
+
+// function loadHelper() {
+  
+// }
 
 export default function ImagePage({ route, navigation }) {
   const { image, name } = route.params;
@@ -93,6 +99,25 @@ export default function ImagePage({ route, navigation }) {
   };
 
   const [modalVisible, setModalVisible] = useState(false);
+
+  // const ref = useRef(null);
+  // useEffect(() => {
+  //   if (ref.current) {
+  //     const ctx = ref.current.getContext('2d');
+  //     ctx.beginPath();
+  //     ctx.arc(100, 100, 40, 0, 2 * Math.PI);
+  //     ctx.closePath();
+  //     ctx.fillStyle = 'blue';
+  //     ctx.fill();
+  //   }
+  // }, [ref]);
+
+  // handleCanvas = (canvas) => {
+  //   const ctx = canvas.getContext('2d');
+  //   ctx.fillStyle = 'purple';
+  //   ctx.fillRect(0, 0, 100, 100);
+  // };
+
   return (
     <View style={styles.container}>
       <Modal
@@ -161,6 +186,19 @@ export default function ImagePage({ route, navigation }) {
           ></ImageBackground>
         </View>
       </View>
+
+      {/* <Canvas ref={this.handleCanvas} /> */}
+      {/* <Canvas style={{ width: '10%', height: '10%', backgroundColor: 'black' }} ref={ref} /> */}
+      {image.id
+        ? (<SoundImage
+          src={image.src}
+          title={image.title}
+          description={image.description}
+          id={image.id}
+          layers={image.layers}
+          soundEffects={image.soundEffects}
+        />)
+        : null}
 
       <View style={styles.toolBar}>
         <AntDesign
