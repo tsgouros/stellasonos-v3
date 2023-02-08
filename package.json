@@ -12,7 +12,7 @@
     "@ant-design/icons": "^4.7.0",
     "@ant-design/icons-react-native": "^2.3.2",
     "@expo/ngrok": "^2.5.0",
-    "@expo/vector-icons": "github:expo/vector-icons",
+    "@expo/vector-icons": "^13.0.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.1",
     "@rneui/base": "^4.0.0-rc.6",
