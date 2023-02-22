@@ -8,7 +8,7 @@ import OpenCVLib from "./OpenCVLib";
  * For each pixel, we give it an id number that reflects which object it belongs to.
  * An object id of 0 means this pixel is not part of any prominent object and is considered background.
  */
-class ImageSegmentation {
+class MockImageSegmentation {
   constructor() {
     this.state = {
       cv: null,
