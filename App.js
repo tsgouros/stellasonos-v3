@@ -11,6 +11,10 @@ import Home from './pages/Home';
 import Placeholder from './pages/Placeholder';
 import ImagePage from './pages/ImagePage.js';
 import VibrationPage from './pages/VibrationPage.js';
+import SoundHome from './pages/SoundHome.js';
+import SoundPage from './pages/SoundPage.js';
+//import SynthPage from './pages/SynthPage.js';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -27,7 +31,13 @@ export default function App() {
         <Stack.Screen name="Intro" component={Intro} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ImagePage" component={ImagePage} />
-        <Stack.Screen name="VibrationPage" component={VibrationPage} />
+        <Stack.Screen name="VibrationPage" component={VibrationPage} />        
+        <Stack.Screen name="SoundHome" component={SoundHome} />        
+        <Stack.Screen name="SoundPage" component={SoundPage} />
+
+
+
+
 
         {/* <Stack.Screen name="Placeholder" component={Placeholder} /> */}
       </Stack.Navigator>

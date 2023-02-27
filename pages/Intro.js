@@ -18,6 +18,14 @@ export default function Intro({ navigation }) {
         style={ButtonStyles.blackButton}>
         <Text style={TextStyles.whiteTextSmall}>Go to Vibration page</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('SoundHome')}
+        style={ButtonStyles.blackButton}>
+        <Text style={TextStyles.whiteTextSmall}>Go to Sound page</Text>
+      </TouchableOpacity>
+ 
+
+
 
 
       {/* Alternative button design */}
