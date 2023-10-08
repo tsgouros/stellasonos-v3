@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import {
   Animated,
   View,
@@ -12,8 +13,6 @@ import {
 } from "react-native";
 
 import { Dimensions } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-
 
 export default function ImagePage({ route, navigation }) {
   const { image, name } = route.params;
@@ -213,7 +212,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     backgroundColor: "blue",
-    borderRadius: "50%",
+    borderRadius: 50,
   },
   imageContainer: {
     width: Dimensions.get("window").width - 50,

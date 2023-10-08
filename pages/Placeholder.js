@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Text, View, TouchableOpacity, StatusBar } from 'react-native';
 
 // Utils and other pages
 import { ContainerStyles, ButtonStyles, TextStyles } from '../utils/styles';
@@ -22,8 +22,8 @@ export default function Placeholder({ route, navigation }) {
         style={ButtonStyles.blackButton}>
         <Text style={TextStyles.whiteTextSmall}>Go to Intro screen</Text>
       </TouchableOpacity> */}
-      <StatusBar style="auto" />
+      
+      <StatusBar />
     </View>
   );
 }
-

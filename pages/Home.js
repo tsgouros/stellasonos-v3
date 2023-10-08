@@ -1,6 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { Image, Text, View } from 'react-native';
+import { StatusBar, Image, Text, View } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
+import React from 'react';
 
 // Utils and other pages
 import { ContainerStyles, ImageStyles, TextStyles } from '../utils/styles';
@@ -35,7 +35,7 @@ export default function Home({ navigation }) {
         backgroundColor={'#FFF'}
         stackSize={3}
       />
-      <StatusBar style="auto" />
+      <StatusBar />
     </View>
   );
 }
@@ -53,4 +53,3 @@ function navigateToImagePage(image, navigation) {
   navigation.navigate('ImagePage', { image: image });
   console.log('Navigating to Image page with image: ' + image.title);
 }
-
