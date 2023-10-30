@@ -21,20 +21,20 @@ export default function VibrationPage({ navigation }) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  function wiggle(pattern, style) { // was async
+  async function wiggle(pattern, style) { // was async
     for (let i = 0; i < pattern.length; i++) {
       if (style === "impactLight") {
         ReactNativeHapticFeedback.trigger("impactLight");
-        delay(pattern[i]); // was await
+        await delay(pattern[i]); // was await
       }
       if (style === "impactMedium") {
         ReactNativeHapticFeedback.trigger("impactMedium");
-        delay(pattern[i]);
+        await delay(pattern[i]);
       }
 
       if (style === "impactHeavy") {
         ReactNativeHapticFeedback.trigger("impactHeavy");
-        delay(pattern[i]);
+        await delay(pattern[i]);
       }
     }
   }
