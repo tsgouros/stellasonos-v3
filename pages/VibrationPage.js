@@ -1,7 +1,10 @@
 import React from "react";
 import { Text, Vibration, View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import ReactNativeHapticFeedback from "react-native-haptic-feedback";
-
+// https://www.npmjs.com/package/react-native-haptic-feedback
+// strings to go in ReactNativeHapticFeedback.trigger("...") that work for android and ios:
+// impactHeavy, impactMedium, impactLight, rigid, soft, notificationSuccess, notificationWarning
+// notifiationError 
 export default function VibrationPage({ navigation }) {
   const ONE_SECOND_IN_MS = 1000;
 
@@ -18,23 +21,23 @@ export default function VibrationPage({ navigation }) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  // async function wiggle(pattern, type, style) {
-  //   for (let i = 0; i < pattern.length; i++) {
-  //     if (style === "selection") {
-  //       await Haptics.selectionAsync();
-  //       await delay(pattern[i]);
-  //     }
-  //     if (style === "impact") {
-  //       await Haptics.impactAsync(type);
-  //       await delay(pattern[i]);
-  //     }
+  function wiggle(pattern, style) { // was async
+    for (let i = 0; i < pattern.length; i++) {
+      if (style === "impactLight") {
+        ReactNativeHapticFeedback.trigger("impactLight");
+        delay(pattern[i]); // was await
+      }
+      if (style === "impactMedium") {
+        ReactNativeHapticFeedback.trigger("impactMedium");
+        delay(pattern[i]);
+      }
 
-  //     if (style === "notification") {
-  //       await Haptics.notificationAsync(type);
-  //       await delay(pattern[i]);
-  //     }
-  //   }
-  // }
+      if (style === "impactHeavy") {
+        ReactNativeHapticFeedback.trigger("impactHeavy");
+        delay(pattern[i]);
+      }
+    }
+  }
 
   // //wiggle([1, 1, 3], h, notification, type)
   // const { trigger, stop } = useHaptics();
@@ -44,465 +47,465 @@ export default function VibrationPage({ navigation }) {
   // }, []);
 
   return (
-    <View>
-     <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'black' }}>Hi</Text>
-     {ReactNativeHapticFeedback.trigger("impactHeavy")}
-    </View>
+    // <View>
+    //  <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'black' }}>Hi</Text>
+    //  {ReactNativeHapticFeedback.trigger("impactHeavy")}
+    // </View>
     
-    // <SafeAreaView style={styles.container}>
-    //   <Text style={[styles.header, styles.paragraph]}>Cool Vibes!</Text>
-    //   <View style={{ flexDirection: "row", alignItems: "center" }}>
-    //     <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
-    //     <View style={{ padding: 5 }}>
-    //       <Text style={{ width: 75, textAlign: "center" }}>PATTERN 1</Text>
-    //     </View>
-    //     <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
-    //   </View>
-    //   <View style={styles.impactRow}>
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with heavy impact pattern"
-    //       onPress={() =>
-    //         wiggle(PATTERN1, Haptics.ImpactFeedbackStyle.Heavy, "impact")
-    //       }
-    //     >
-    //       <View style={styles.squareHI} />
-    //       <Text style={{ fontSize: 10 }}>Heavy Impact</Text>
-    //     </TouchableOpacity>
+    <SafeAreaView style={styles.container}>
+      <Text style={[styles.header, styles.paragraph]}>Cool Vibes!</Text>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
+        <View style={{ padding: 5 }}>
+          <Text style={{ width: 75, textAlign: "center" }}>PATTERN 1</Text>
+        </View>
+        <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
+      </View>
+      <View style={styles.impactRow}>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with heavy impact pattern"
+          onPress={() =>
+            wiggle(PATTERN1, "impactHeavy")
+          }
+        >
+          <View style={styles.squareHI} />
+          <Text style={{ fontSize: 10 }}>Heavy Impact</Text>
+        </TouchableOpacity>
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() =>
-    //         wiggle(PATTERN1, Haptics.ImpactFeedbackStyle.Medium, "impact")
-    //       }
-    //     >
-    //       <View style={styles.squareMI} />
-    //       <Text style={{ fontSize: 10 }}>Medium Impact</Text>
-    //     </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() =>
+            wiggle(PATTERN1, "impactMedium")
+          }
+        >
+          <View style={styles.squareMI} />
+          <Text style={{ fontSize: 10 }}>Medium Impact</Text>
+        </TouchableOpacity>
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() =>
-    //         wiggle(PATTERN1, Haptics.ImpactFeedbackStyle.Light, "impact")
-    //       }
-    //     >
-    //       <View style={styles.squareLI} />
-    //       <Text style={{ fontSize: 10 }}>Light Impact</Text>
-    //     </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() =>
+            wiggle(PATTERN1, "impactLight")
+          }
+        >
+          <View style={styles.squareLI} />
+          <Text style={{ fontSize: 10 }}>Light Impact</Text>
+        </TouchableOpacity>
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN1,
-    //           Haptics.NotificationFeedbackType.Warning,
-    //           "selection"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareSP} />
-    //       <Text style={{ fontSize: 10 }}>Selection Pattern</Text>
-    //     </TouchableOpacity>
-    //   </View>
+        {/* <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN1,
+              Haptics.NotificationFeedbackType.Warning,
+              "selection"
+            )
+          }
+        >
+          <View style={styles.squareSP} />
+          <Text style={{ fontSize: 10 }}>Selection Pattern</Text>
+        </TouchableOpacity> */}
+      </View>
 
-    //   {/* ----------------------------------------------------------------------- */}
+      {/* ----------------------------------------------------------------------- */}
 
-    //   <View style={styles.impactRow2}>
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN1,
-    //           Haptics.NotificationFeedbackType.Success,
-    //           "notification"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareSN} />
-    //       <Text style={{ fontSize: 10 }}>Sucess Notif.</Text>
-    //     </TouchableOpacity>
+      <View style={styles.impactRow2}>
+        {/* <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN1,
+              Haptics.NotificationFeedbackType.Success,
+              "notification"
+            )
+          }
+        >
+          <View style={styles.squareSN} />
+          <Text style={{ fontSize: 10 }}>Sucess Notif.</Text>
+        </TouchableOpacity> */}
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN1,
-    //           Haptics.NotificationFeedbackType.Warning,
-    //           "notification"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareWN} />
-    //       <Text style={{ fontSize: 10 }}>Warning Notif.</Text>
-    //     </TouchableOpacity>
+        {/* <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN1,
+              Haptics.NotificationFeedbackType.Warning,
+              "notification"
+            )
+          }
+        >
+          <View style={styles.squareWN} />
+          <Text style={{ fontSize: 10 }}>Warning Notif.</Text>
+        </TouchableOpacity> */}
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN1,
-    //           Haptics.NotificationFeedbackType.Error,
-    //           "notification"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareEN} />
-    //       <Text style={{ fontSize: 10 }}>Error Notif.</Text>
-    //     </TouchableOpacity>
+        {/* <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN1,
+              Haptics.NotificationFeedbackType.Error,
+              "notification"
+            )
+          }
+        >
+          <View style={styles.squareEN} />
+          <Text style={{ fontSize: 10 }}>Error Notif.</Text>
+        </TouchableOpacity> */}
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() => {
-    //         Vibration.vibrate(PATTERN1);
-    //       }}
-    //     >
-    //       <View style={styles.squareV} />
-    //       <Text style={{ fontSize: 10 }}>Vibrate</Text>
-    //     </TouchableOpacity>
-    //   </View>
-    //   {/* ----------------------------------------------------------------------- */}
+        {/* <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() => {
+            Vibration.vibrate(PATTERN1);
+          }}
+        >
+          <View style={styles.squareV} />
+          <Text style={{ fontSize: 10 }}>Vibrate</Text>
+        </TouchableOpacity> */}
+      </View>
+      {/* ----------------------------------------------------------------------- */}
 
-    //   <View style={{ flexDirection: "row", alignItems: "center" }}>
-    //     <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
-    //     <View style={{ padding: 5 }}>
-    //       <Text style={{ width: 75, textAlign: "center" }}>PATTERN 2</Text>
-    //     </View>
-    //     <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
-    //   </View>
-    //   <View style={styles.impactRow2}>
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with heavy impact pattern"
-    //       onPress={() =>
-    //         wiggle(PATTERN2, Haptics.ImpactFeedbackStyle.Heavy, "impact")
-    //       }
-    //     >
-    //       <View style={styles.squareHI} />
-    //       <Text style={{ fontSize: 10 }}>Heavy Impact</Text>
-    //     </TouchableOpacity>
+      {/* <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
+        <View style={{ padding: 5 }}>
+          <Text style={{ width: 75, textAlign: "center" }}>PATTERN 2</Text>
+        </View>
+        <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
+      </View>
+      <View style={styles.impactRow2}>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with heavy impact pattern"
+          onPress={() =>
+            wiggle(PATTERN2, Haptics.ImpactFeedbackStyle.Heavy, "impact")
+          }
+        >
+          <View style={styles.squareHI} />
+          <Text style={{ fontSize: 10 }}>Heavy Impact</Text>
+        </TouchableOpacity>
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() =>
-    //         wiggle(PATTERN2, Haptics.ImpactFeedbackStyle.Medium, "impact")
-    //       }
-    //     >
-    //       <View style={styles.squareMI} />
-    //       <Text style={{ fontSize: 10 }}>Medium Impact</Text>
-    //     </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() =>
+            wiggle(PATTERN2, Haptics.ImpactFeedbackStyle.Medium, "impact")
+          }
+        >
+          <View style={styles.squareMI} />
+          <Text style={{ fontSize: 10 }}>Medium Impact</Text>
+        </TouchableOpacity>
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() =>
-    //         wiggle(PATTERN2, Haptics.ImpactFeedbackStyle.Light, "impact")
-    //       }
-    //     >
-    //       <View style={styles.squareLI} />
-    //       <Text style={{ fontSize: 10 }}>Light Impact</Text>
-    //     </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() =>
+            wiggle(PATTERN2, Haptics.ImpactFeedbackStyle.Light, "impact")
+          }
+        >
+          <View style={styles.squareLI} />
+          <Text style={{ fontSize: 10 }}>Light Impact</Text>
+        </TouchableOpacity>
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN2,
-    //           Haptics.NotificationFeedbackType.Warning,
-    //           "selection"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareSP} />
-    //       <Text style={{ fontSize: 10 }}>Selection Pattern</Text>
-    //     </TouchableOpacity>
-    //   </View>
+        <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN2,
+              Haptics.NotificationFeedbackType.Warning,
+              "selection"
+            )
+          }
+        >
+          <View style={styles.squareSP} />
+          <Text style={{ fontSize: 10 }}>Selection Pattern</Text>
+        </TouchableOpacity>
+      </View> */}
 
-    //   {/* ----------------------------------------------------------------------- */}
+      {/* ----------------------------------------------------------------------- */}
+{/* 
+      <View style={styles.impactRow2}>
+        <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN2,
+              Haptics.NotificationFeedbackType.Success,
+              "notification"
+            )
+          }
+        >
+          <View style={styles.squareSN} />
+          <Text style={{ fontSize: 10 }}>Sucess Notif.</Text>
+        </TouchableOpacity>
 
-    //   <View style={styles.impactRow2}>
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN2,
-    //           Haptics.NotificationFeedbackType.Success,
-    //           "notification"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareSN} />
-    //       <Text style={{ fontSize: 10 }}>Sucess Notif.</Text>
-    //     </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN2,
+              Haptics.NotificationFeedbackType.Warning,
+              "notification"
+            )
+          }
+        >
+          <View style={styles.squareWN} />
+          <Text style={{ fontSize: 10 }}>Warning Notif.</Text>
+        </TouchableOpacity>
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN2,
-    //           Haptics.NotificationFeedbackType.Warning,
-    //           "notification"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareWN} />
-    //       <Text style={{ fontSize: 10 }}>Warning Notif.</Text>
-    //     </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN2,
+              Haptics.NotificationFeedbackType.Error,
+              "notification"
+            )
+          }
+        >
+          <View style={styles.squareEN} />
+          <Text style={{ fontSize: 10 }}>Error Notif.</Text>
+        </TouchableOpacity>
 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN2,
-    //           Haptics.NotificationFeedbackType.Error,
-    //           "notification"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareEN} />
-    //       <Text style={{ fontSize: 10 }}>Error Notif.</Text>
-    //     </TouchableOpacity>
-
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() => {
-    //         Vibration.vibrate(PATTERN2);
-    //       }}
-    //     >
-    //       <View style={styles.squareV} />
-    //       <Text style={{ fontSize: 10 }}>Vibrate</Text>
-    //     </TouchableOpacity>
-    //   </View>
-    //   {/* ----------------------------------------------------------------------- */}
-    //   {/* ----------------------------------------------------------------------- */}
-
-
-
-    //   <View style={{ flexDirection: "row", alignItems: "center" }}>
-    //     <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
-    //     <View style={{ padding: 5 }}>
-    //       <Text style={{ width: 75, textAlign: "center" }}>PATTERN 3</Text>
-    //     </View>
-    //     <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
-    //   </View>
-    //   <View style={styles.impactRow2}>
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with heavy impact pattern"
-    //       onPress={() =>
-    //         wiggle(PATTERN3, Haptics.ImpactFeedbackStyle.Heavy, "impact")
-    //       }
-    //     >
-    //       <View style={styles.squareHI} />
-    //       <Text style={{ fontSize: 10 }}>Heavy Impact</Text>
-    //     </TouchableOpacity>
-
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() =>
-    //         wiggle(PATTERN3, Haptics.ImpactFeedbackStyle.Medium, "impact")
-    //       }
-    //     >
-    //       <View style={styles.squareMI} />
-    //       <Text style={{ fontSize: 10 }}>Medium Impact</Text>
-    //     </TouchableOpacity>
-
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() =>
-    //         wiggle(PATTERN3, Haptics.ImpactFeedbackStyle.Light, "impact")
-    //       }
-    //     >
-    //       <View style={styles.squareLI} />
-    //       <Text style={{ fontSize: 10 }}>Light Impact</Text>
-    //     </TouchableOpacity>
-
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN3,
-    //           Haptics.NotificationFeedbackType.Warning,
-    //           "selection"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareSP} />
-    //       <Text style={{ fontSize: 10 }}>Selection Pattern</Text>
-    //     </TouchableOpacity>
-    //   </View>
-
-    //   {/* ----------------------------------------------------------------------- */}
-
-    //   <View style={styles.impactRow2}>
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN3,
-    //           Haptics.NotificationFeedbackType.Success,
-    //           "notification"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareSN} />
-    //       <Text style={{ fontSize: 10 }}>Sucess Notif.</Text>
-    //     </TouchableOpacity>
-
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN3,
-    //           Haptics.NotificationFeedbackType.Warning,
-    //           "notification"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareWN} />
-    //       <Text style={{ fontSize: 10 }}>Warning Notif.</Text>
-    //     </TouchableOpacity>
-
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       onPress={() =>
-    //         wiggle(
-    //           PATTERN3,
-    //           Haptics.NotificationFeedbackType.Error,
-    //           "notification"
-    //         )
-    //       }
-    //     >
-    //       <View style={styles.squareEN} />
-    //       <Text style={{ fontSize: 10 }}>Error Notif.</Text>
-    //     </TouchableOpacity>
-
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() => {
-    //         Vibration.vibrate(PATTERN3);
-    //       }}
-    //     >
-    //       <View style={styles.squareV} />
-    //       <Text style={{ fontSize: 10 }}>Vibrate</Text>
-    //     </TouchableOpacity>
-    //   </View>
-    //   {/* ----------------------------------------------------------------------- */}
-
-    //   {/* <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() => {
-    //         const interval = setInterval(
-    //           () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light),
-    //           500
-    //         );
-    //         // it will vibrate for 5 seconds
-    //         setTimeout(() => clearInterval(interval), 5000);
-    //       }}
-    //     >
-    //       <View style={styles.square2} />
-    //       <Text>light impact </Text>
-    //     </TouchableOpacity> */}
-    //   {/* 
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() => {
-    //         const interval = setInterval(
-    //           () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium),
-    //           500
-    //         );
-    //         // it will vibrate for 5 seconds
-    //         setTimeout(() => clearInterval(interval), 5000);
-    //       }}
-    //     >
-    //       <View style={styles.square3} />
-    //       <Text>medium impact</Text>
-    //     </TouchableOpacity> */}
-
-    //   {/* VIBRATE
-    //   <View style={styles.vibrateRow}>
-    //     <TouchableOpacity
-    //       style={styles.centered}
-    //       title="Vibrate with trigger"
-    //       onPress={() => {
-    //         Vibration.vibrate();
-    //       }}
-    //     >
-    //       <View style={styles.square4} />
-    //       <Text>vibrate once </Text>
-    //     </TouchableOpacity>
-
-    //     <HapticsProvider>
-    //       <View>
-    //       <Button
-    //         style={styles.centered}
-    //         title="impacts with pattern"
-    //         onPress={() => trigger(SUCCESS_PATTERN, true)}
-    //       ></Button>
-    //       </View>
-    //       </HapticsProvider>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() => {
+            Vibration.vibrate(PATTERN2);
+          }}
+        >
+          <View style={styles.squareV} />
+          <Text style={{ fontSize: 10 }}>Vibrate</Text>
+        </TouchableOpacity>
+      </View> */}
+      {/* ----------------------------------------------------------------------- */}
+      {/* ----------------------------------------------------------------------- */}
 
 
 
-    //   </View> */}
+      {/* <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
+        <View style={{ padding: 5 }}>
+          <Text style={{ width: 75, textAlign: "center" }}>PATTERN 3</Text>
+        </View>
+        <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
+      </View>
+      <View style={styles.impactRow2}>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with heavy impact pattern"
+          onPress={() =>
+            wiggle(PATTERN3, Haptics.ImpactFeedbackStyle.Heavy, "impact")
+          }
+        >
+          <View style={styles.squareHI} />
+          <Text style={{ fontSize: 10 }}>Heavy Impact</Text>
+        </TouchableOpacity>
 
-    //   {/*       
-    //   <TouchableOpacity 
-    //     style = {styles.centered}
-    //     title="Vibrate with pattern with trigger" onPress=
-    //     {() => {ReactNativeHapticFeedback.trigger("impactLight", )}}
-    //     ><View style= {styles.square}/>
-    //   </TouchableOpacity> */}
-    //   {/* <Separator />
-    //     {Platform.OS == "android"
-    //       ? [
-    //           <View>
-    //             <Button
-    //               title="Vibrate for 10 seconds"
-    //               onPress={
-    //                 () => {
-    //                     const interval = setInterval(() => Vibration.vibrate(), 1000);
-    //   // it will vibrate for 5 seconds
-    //   setTimeout(() => clearInterval(interval), 5000);
-    //                 }
-    //               }
-    //             />
-    //           </View>,
-    //           <Separator />
-    //         ]
-    //       : null} */}
-    //   {/* <Text style={styles.paragraph}>Pattern: {PATTERN_DESC}</Text> */}
-    //   {/* <Button
-    //     title="Vibrate with pattern"
-    //     onPress={() => {
-    //       const interval = setInterval(() => Vibration.vibrate(), 100);
-    //       // it will vibrate for 5 seconds
-    //       setTimeout(() => clearInterval(interval), 10000);
-    //     }}
-    //   />*/}
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() =>
+            wiggle(PATTERN3, Haptics.ImpactFeedbackStyle.Medium, "impact")
+          }
+        >
+          <View style={styles.squareMI} />
+          <Text style={{ fontSize: 10 }}>Medium Impact</Text>
+        </TouchableOpacity>
 
-    //   {/* <Separator /> 
-    //   <Button
-    //     title="selection haptic"
-    //     onPress={() => Haptics.selectionAsync()}
-    //   /> */}
-    //   {/* <Separator /> */}
-    //   {/* <Button
-    //     title="impact haptic"
-    //     onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}
-    //     color="#FF0000"
-    //   /> 
-    //   */}
-    // </SafeAreaView>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() =>
+            wiggle(PATTERN3, Haptics.ImpactFeedbackStyle.Light, "impact")
+          }
+        >
+          <View style={styles.squareLI} />
+          <Text style={{ fontSize: 10 }}>Light Impact</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN3,
+              Haptics.NotificationFeedbackType.Warning,
+              "selection"
+            )
+          }
+        >
+          <View style={styles.squareSP} />
+          <Text style={{ fontSize: 10 }}>Selection Pattern</Text>
+        </TouchableOpacity>
+      </View> */}
+
+      {/* ----------------------------------------------------------------------- */}
+
+      {/* <View style={styles.impactRow2}>
+        <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN3,
+              Haptics.NotificationFeedbackType.Success,
+              "notification"
+            )
+          }
+        >
+          <View style={styles.squareSN} />
+          <Text style={{ fontSize: 10 }}>Sucess Notif.</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN3,
+              Haptics.NotificationFeedbackType.Warning,
+              "notification"
+            )
+          }
+        >
+          <View style={styles.squareWN} />
+          <Text style={{ fontSize: 10 }}>Warning Notif.</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN3,
+              Haptics.NotificationFeedbackType.Error,
+              "notification"
+            )
+          }
+        >
+          <View style={styles.squareEN} />
+          <Text style={{ fontSize: 10 }}>Error Notif.</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() => {
+            Vibration.vibrate(PATTERN3);
+          }}
+        >
+          <View style={styles.squareV} />
+          <Text style={{ fontSize: 10 }}>Vibrate</Text>
+        </TouchableOpacity>
+      </View> */}
+      {/* ----------------------------------------------------------------------- */}
+
+      {/* <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() => {
+            const interval = setInterval(
+              () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light),
+              500
+            );
+            // it will vibrate for 5 seconds
+            setTimeout(() => clearInterval(interval), 5000);
+          }}
+        >
+          <View style={styles.square2} />
+          <Text>light impact </Text>
+        </TouchableOpacity> */}
+      {/* 
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() => {
+            const interval = setInterval(
+              () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium),
+              500
+            );
+            // it will vibrate for 5 seconds
+            setTimeout(() => clearInterval(interval), 5000);
+          }}
+        >
+          <View style={styles.square3} />
+          <Text>medium impact</Text>
+        </TouchableOpacity> */}
+
+      {/* VIBRATE
+      <View style={styles.vibrateRow}>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() => {
+            Vibration.vibrate();
+          }}
+        >
+          <View style={styles.square4} />
+          <Text>vibrate once </Text>
+        </TouchableOpacity>
+
+        <HapticsProvider>
+          <View>
+          <Button
+            style={styles.centered}
+            title="impacts with pattern"
+            onPress={() => trigger(SUCCESS_PATTERN, true)}
+          ></Button>
+          </View>
+          </HapticsProvider>
+
+
+
+      </View> */}
+
+      {/*       
+      <TouchableOpacity 
+        style = {styles.centered}
+        title="Vibrate with pattern with trigger" onPress=
+        {() => {ReactNativeHapticFeedback.trigger("impactLight", )}}
+        ><View style= {styles.square}/>
+      </TouchableOpacity> */}
+      {/* <Separator />
+        {Platform.OS == "android"
+          ? [
+              <View>
+                <Button
+                  title="Vibrate for 10 seconds"
+                  onPress={
+                    () => {
+                        const interval = setInterval(() => Vibration.vibrate(), 1000);
+      // it will vibrate for 5 seconds
+      setTimeout(() => clearInterval(interval), 5000);
+                    }
+                  }
+                />
+              </View>,
+              <Separator />
+            ]
+          : null} */}
+      {/* <Text style={styles.paragraph}>Pattern: {PATTERN_DESC}</Text> */}
+      {/* <Button
+        title="Vibrate with pattern"
+        onPress={() => {
+          const interval = setInterval(() => Vibration.vibrate(), 100);
+          // it will vibrate for 5 seconds
+          setTimeout(() => clearInterval(interval), 10000);
+        }}
+      />*/}
+
+      {/* <Separator /> 
+      <Button
+        title="selection haptic"
+        onPress={() => Haptics.selectionAsync()}
+      /> */}
+      {/* <Separator /> */}
+      {/* <Button
+        title="impact haptic"
+        onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}
+        color="#FF0000"
+      /> 
+      */}
+    </SafeAreaView>
 
   );
 }
