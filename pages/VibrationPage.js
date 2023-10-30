@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, Vibration, View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 
 export default function VibrationPage({ navigation }) {
   const ONE_SECOND_IN_MS = 1000;
@@ -44,7 +45,8 @@ export default function VibrationPage({ navigation }) {
 
   return (
     <View>
-     <Text>Hi</Text>
+     <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'black' }}>Hi</Text>
+     {ReactNativeHapticFeedback.trigger("impactHeavy")}
     </View>
     
     // <SafeAreaView style={styles.container}>
