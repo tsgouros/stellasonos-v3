@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, Vibration, View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 // https://www.npmjs.com/package/react-native-haptic-feedback
@@ -16,6 +16,24 @@ export default function VibrationPage({ navigation }) {
     2 * 1000,
     3 * 1000
   ];
+// ________________________________________________
+  const VIBRATION_DURATION = 100; // Adjust the duration as needed
+  
+  let intervalId = null;
+
+  const handlePressIn = () => {
+    clearInterval();
+    intervalId = setInterval(() => {
+      ReactNativeHapticFeedback.trigger("impactHeavy");
+    }, VIBRATION_DURATION);
+  };
+
+  const handlePressOut = () => {
+    if (intervalId != null) {
+      clearInterval(intervalId);
+    }
+  };
+  // __________________________________________
 
   function delay(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -57,7 +75,7 @@ export default function VibrationPage({ navigation }) {
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
         <View style={{ padding: 5 }}>
-          <Text style={{ width: 75, textAlign: "center" }}>PATTERN 1</Text>
+          <Text style={{ width: 75, textAlign: "center", color: "black" }}>PATTERN 1</Text>
         </View>
         <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
       </View>
@@ -70,7 +88,7 @@ export default function VibrationPage({ navigation }) {
           }
         >
           <View style={styles.squareHI} />
-          <Text style={{ fontSize: 10 }}>Heavy Impact</Text>
+          <Text style={{ fontSize: 10, color: "black" }}>Heavy Impact</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -81,7 +99,7 @@ export default function VibrationPage({ navigation }) {
           }
         >
           <View style={styles.squareMI} />
-          <Text style={{ fontSize: 10 }}>Medium Impact</Text>
+          <Text style={{ fontSize: 10, color: "black" }}>Medium Impact</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -92,7 +110,7 @@ export default function VibrationPage({ navigation }) {
           }
         >
           <View style={styles.squareLI} />
-          <Text style={{ fontSize: 10 }}>Light Impact</Text>
+          <Text style={{ fontSize: 10, color: "black" }}>Light Impact</Text>
         </TouchableOpacity>
 
         {/* <TouchableOpacity
@@ -113,19 +131,15 @@ export default function VibrationPage({ navigation }) {
       {/* ----------------------------------------------------------------------- */}
 
       <View style={styles.impactRow2}>
-        {/* <TouchableOpacity
+        <TouchableOpacity
           style={styles.centered}
-          onPress={() =>
-            wiggle(
-              PATTERN1,
-              Haptics.NotificationFeedbackType.Success,
-              "notification"
-            )
-          }
+          onPressIn={handlePressIn}
+          onPressOut={handlePressOut}
+
         >
-          <View style={styles.squareSN} />
-          <Text style={{ fontSize: 10 }}>Sucess Notif.</Text>
-        </TouchableOpacity> */}
+          <View style={styles.rectTouch} />
+          <Text style={{ fontSize: 10, color: "black" }}>Touch or touch and drag to vibrate</Text>
+        </TouchableOpacity>
 
         {/* <TouchableOpacity
           style={styles.centered}
@@ -536,6 +550,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderBottomColor: "#737373",
     borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  rectTouch: {
+    height: 200,
+    width: 250,
+    backgroundColor: "darkblue",
+    justifyContent: "center",
+    borderRadius: 15,
   },
   squareHI: {
     height: 40,
