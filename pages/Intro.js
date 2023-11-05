@@ -1,5 +1,18 @@
-import React from 'react';
-import { Text, View, TouchableOpacity, StatusBar } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { Text, View, TouchableOpacity } from 'react-native';
+import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack';
+//import NewScreen from './NewScreen'; // Import the new screen
+const Stack = createStackNavigator();
+
+const AppNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="NewScreen" component={SoundHome} /> {/* Add this line */}
+    </Stack.Navigator>
+  );
+}
 
 // Utils and other pages
 import { ContainerStyles, ButtonStyles, TextStyles } from '../utils/styles';
@@ -7,9 +20,7 @@ import { ContainerStyles, ButtonStyles, TextStyles } from '../utils/styles';
 export default function Intro({ navigation }) {
   return (
     <View style={ContainerStyles.defaultContainer}>
-      <Text style={TextStyles.blackTextSmall}>
-        Just a placeholder for the eventual intro screen... By default, this opens every time the app is started.
-      </Text>
+      <Text style={TextStyles.blackTextSmall}>Just a placeholder for the eventual intro screen... By default, this opens every time the app is started.</Text>
       <TouchableOpacity
         onPress={() => navigation.navigate('Home')}
         style={ButtonStyles.blackButton}>
@@ -20,11 +31,17 @@ export default function Intro({ navigation }) {
         style={ButtonStyles.blackButton}>
         <Text style={TextStyles.whiteTextSmall}>Go to Vibration page</Text>
       </TouchableOpacity>
-
+      <TouchableOpacity
+        onPress={() => navigation.navigate('SoundHome', { screen: 'Home'})}
+        style={ButtonStyles.blackButton}>
+        <Text style={TextStyles.whiteTextSmall}>Go to Sound page</Text>
+      </TouchableOpacity>
+ 
       {/* Alternative button design */}
       {/* <Button onPress={() => navigation.navigate('Home')} title="Go to Home page"/> */}
-      
-      <StatusBar />
+
+      <StatusBar style="auto" />
     </View>
   );
 }
+
