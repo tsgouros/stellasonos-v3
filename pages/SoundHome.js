@@ -8,6 +8,7 @@ import { ContainerStyles, ImageStyles, TextStyles } from '../utils/styles';
 
 // Images from JSON
 import images from '../images.json';
+import soundconfig from "./SoundConfig.json"
 
 export default function SoundHome({ navigation }) {
   var cards = [];
@@ -51,6 +52,6 @@ function buildCard(image) {
 }
 
 function navigateToSoundPage(image, navigation) {
-  navigation.navigate('SoundPage', { image: image });
+  navigation.navigate('SoundPage', { image: image, config: soundconfig });
   console.log('Navigating to Image page with image: ' + image.title);
 }

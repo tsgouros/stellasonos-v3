@@ -3,16 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 //import NewScreen from './NewScreen'; // Import the new screen
-const Stack = createStackNavigator();
 
-const AppNavigator = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="NewScreen" component={SoundHome} /> {/* Add this line */}
-    </Stack.Navigator>
-  );
-}
 
 // Utils and other pages
 import { ContainerStyles, ButtonStyles, TextStyles } from '../utils/styles';
@@ -32,7 +23,7 @@ export default function Intro({ navigation }) {
         <Text style={TextStyles.whiteTextSmall}>Go to Vibration page</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate('SoundHome', { screen: 'Home'})}
+        onPress={() => navigation.navigate('SoundHome')}
         style={ButtonStyles.blackButton}>
         <Text style={TextStyles.whiteTextSmall}>Go to Sound page</Text>
       </TouchableOpacity>

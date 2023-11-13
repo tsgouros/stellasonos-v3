@@ -1,5 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import { Image, Text, View } from "react-native";
+import { StatusBar, Image, Text, View } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import React from "react";
 
@@ -9,7 +8,7 @@ import { ContainerStyles, ImageStyles, TextStyles } from "../utils/styles";
 // Images from JSON
 import images from "../images.json";
 
-export default function SoundHome({ navigation }) {
+export default function Home({ navigation }) {
   var cards = [];
   for (var i = 0; i < images.images.length; i++) {
     cards.push(buildCard(images.images[i]));
@@ -26,14 +25,13 @@ export default function SoundHome({ navigation }) {
           console.log("All cards have been swiped.");
         }}
         onSwipedRight={(cardIndex) => {
-          navigateToSoundPage(images.images[cardIndex], navigation);
-          console.log("hey im in the sound page.")
+          navigateToImagePage(images.images[cardIndex], navigation);
         }}
         onSwipedTop={(cardIndex) => {
-          navigateToSoundPage(images.images[cardIndex], navigation);
+          navigateToImagePage(images.images[cardIndex], navigation);
         }}
         onTapCard={(cardIndex) => {
-          navigateToSoundPage(images.images[cardIndex], navigation);
+          navigateToImagePage(images.images[cardIndex], navigation);
         }}
         // Do we actually want onTapCard to do something? (What if user accidentally taps?)
         // TODO: Add a button to the bottom of the card stack to "Reload all cards and start over"
@@ -41,7 +39,7 @@ export default function SoundHome({ navigation }) {
         backgroundColor={"#FFF"}
         stackSize={3}
       />
-      <StatusBar style="auto" />
+      <StatusBar />
     </View>
   );
 }
@@ -55,7 +53,7 @@ function buildCard(image) {
   );
 }
 
-function navigateToSoundPage(image, navigation) {
-  navigation.navigate("SoundPage", { image: image });
+function navigateToImagePage(image, navigation) {
+  navigation.navigate("ImagePage", { image: image });
   console.log("Navigating to Image page with image: " + image.title);
 }
