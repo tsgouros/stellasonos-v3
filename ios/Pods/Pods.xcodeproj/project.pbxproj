@@ -2708,10 +2708,10 @@
 		46EB2E00017600 /* RNCSafeAreaViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E0000A410 /* RNCSafeAreaViewManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		46EB2E00017610 /* RNCSafeAreaViewMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E0000A430 /* RNCSafeAreaViewMode.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		46EB2E00017670 /* react-native-safe-area-context-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00017660 /* react-native-safe-area-context-dummy.m */; };
-		46EB2E00017750 /* Pods-stellasonosv3_1-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E00017740 /* Pods-stellasonosv3_1-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		46EB2E000177B0 /* Pods-stellasonosv3_1-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000177A0 /* Pods-stellasonosv3_1-dummy.m */; };
-		46EB2E00017890 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E00017880 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		46EB2E000178F0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000178E0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-dummy.m */; };
+		46EB2E00017750 /* Pods-stellasonosv3-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E00017740 /* Pods-stellasonosv3-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		46EB2E000177B0 /* Pods-stellasonosv3-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000177A0 /* Pods-stellasonosv3-dummy.m */; };
+		46EB2E00017890 /* Pods-stellasonosv3-stellasonosv3Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E00017880 /* Pods-stellasonosv3-stellasonosv3Tests-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		46EB2E000178F0 /* Pods-stellasonosv3-stellasonosv3Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E000178E0 /* Pods-stellasonosv3-stellasonosv3Tests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -7481,27 +7481,28 @@
 		46EB2E00017640 /* react-native-safe-area-context.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "react-native-safe-area-context.release.xcconfig"; sourceTree = "<group>"; };
 		46EB2E00017650 /* react-native-safe-area-context-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "react-native-safe-area-context-prefix.pch"; sourceTree = "<group>"; };
 		46EB2E00017660 /* react-native-safe-area-context-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "react-native-safe-area-context-dummy.m"; sourceTree = "<group>"; };
-		46EB2E00017710 /* Pods-stellasonosv3_1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-stellasonosv3_1.release.xcconfig"; sourceTree = "<group>"; };
-		46EB2E00017720 /* Pods-stellasonosv3_1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-stellasonosv3_1.debug.xcconfig"; sourceTree = "<group>"; };
-		46EB2E00017730 /* Pods-stellasonosv3_1.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-stellasonosv3_1.modulemap"; sourceTree = "<group>"; };
-		46EB2E00017740 /* Pods-stellasonosv3_1-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-stellasonosv3_1-umbrella.h"; sourceTree = "<group>"; };
-		46EB2E00017760 /* Pods-stellasonosv3_1-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-stellasonosv3_1-frameworks.sh"; sourceTree = "<group>"; };
-		46EB2E00017770 /* Pods-stellasonosv3_1-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-stellasonosv3_1-resources.sh"; sourceTree = "<group>"; };
-		46EB2E00017780 /* Pods-stellasonosv3_1-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-stellasonosv3_1-acknowledgements.plist"; sourceTree = "<group>"; };
-		46EB2E00017790 /* Pods-stellasonosv3_1-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-stellasonosv3_1-acknowledgements.markdown"; sourceTree = "<group>"; };
-		46EB2E000177A0 /* Pods-stellasonosv3_1-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-stellasonosv3_1-dummy.m"; sourceTree = "<group>"; };
-		46EB2E00017850 /* Pods-stellasonosv3_1-stellasonosv3_1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-stellasonosv3_1-stellasonosv3_1Tests.release.xcconfig"; sourceTree = "<group>"; };
-		46EB2E00017860 /* Pods-stellasonosv3_1-stellasonosv3_1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-stellasonosv3_1-stellasonosv3_1Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		46EB2E00017870 /* Pods-stellasonosv3_1-stellasonosv3_1Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-stellasonosv3_1-stellasonosv3_1Tests.modulemap"; sourceTree = "<group>"; };
-		46EB2E00017880 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-stellasonosv3_1-stellasonosv3_1Tests-umbrella.h"; sourceTree = "<group>"; };
-		46EB2E000178A0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-stellasonosv3_1-stellasonosv3_1Tests-frameworks.sh"; sourceTree = "<group>"; };
-		46EB2E000178B0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-stellasonosv3_1-stellasonosv3_1Tests-resources.sh"; sourceTree = "<group>"; };
-		46EB2E000178C0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-stellasonosv3_1-stellasonosv3_1Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		46EB2E000178D0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-stellasonosv3_1-stellasonosv3_1Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		46EB2E000178E0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-stellasonosv3_1-stellasonosv3_1Tests-dummy.m"; sourceTree = "<group>"; };
+		46EB2E00017710 /* Pods-stellasonosv3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-stellasonosv3.release.xcconfig"; sourceTree = "<group>"; };
+		46EB2E00017720 /* Pods-stellasonosv3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-stellasonosv3.debug.xcconfig"; sourceTree = "<group>"; };
+		46EB2E00017730 /* Pods-stellasonosv3.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-stellasonosv3.modulemap"; sourceTree = "<group>"; };
+		46EB2E00017740 /* Pods-stellasonosv3-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-stellasonosv3-umbrella.h"; sourceTree = "<group>"; };
+		46EB2E00017760 /* Pods-stellasonosv3-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-stellasonosv3-frameworks.sh"; sourceTree = "<group>"; };
+		46EB2E00017770 /* Pods-stellasonosv3-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-stellasonosv3-resources.sh"; sourceTree = "<group>"; };
+		46EB2E00017780 /* Pods-stellasonosv3-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-stellasonosv3-acknowledgements.plist"; sourceTree = "<group>"; };
+		46EB2E00017790 /* Pods-stellasonosv3-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-stellasonosv3-acknowledgements.markdown"; sourceTree = "<group>"; };
+		46EB2E000177A0 /* Pods-stellasonosv3-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-stellasonosv3-dummy.m"; sourceTree = "<group>"; };
+		46EB2E00017850 /* Pods-stellasonosv3-stellasonosv3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-stellasonosv3-stellasonosv3Tests.release.xcconfig"; sourceTree = "<group>"; };
+		46EB2E00017860 /* Pods-stellasonosv3-stellasonosv3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-stellasonosv3-stellasonosv3Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		46EB2E00017870 /* Pods-stellasonosv3-stellasonosv3Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-stellasonosv3-stellasonosv3Tests.modulemap"; sourceTree = "<group>"; };
+		46EB2E00017880 /* Pods-stellasonosv3-stellasonosv3Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-stellasonosv3-stellasonosv3Tests-umbrella.h"; sourceTree = "<group>"; };
+		46EB2E000178A0 /* Pods-stellasonosv3-stellasonosv3Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-stellasonosv3-stellasonosv3Tests-frameworks.sh"; sourceTree = "<group>"; };
+		46EB2E000178B0 /* Pods-stellasonosv3-stellasonosv3Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-stellasonosv3-stellasonosv3Tests-resources.sh"; sourceTree = "<group>"; };
+		46EB2E000178C0 /* Pods-stellasonosv3-stellasonosv3Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-stellasonosv3-stellasonosv3Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		46EB2E000178D0 /* Pods-stellasonosv3-stellasonosv3Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-stellasonosv3-stellasonosv3Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		46EB2E000178E0 /* Pods-stellasonosv3-stellasonosv3Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-stellasonosv3-stellasonosv3Tests-dummy.m"; sourceTree = "<group>"; };
 		50B5347C9A6E93B7D4CFC3673BA6FB7E /* RNScreens */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = RNScreens; path = libRNScreens.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FCF98CEFF94C742080B6965D537AD0 /* react-native-safe-area-context */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "react-native-safe-area-context"; path = "libreact-native-safe-area-context.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3357A1CE67C0BF4AE31936A1BE6888 /* YogaKit */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = YogaKit; path = libYogaKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		62F9E77324C82A470452046504C467D8 /* Pods-stellasonosv3 */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-stellasonosv3"; path = "libPods-stellasonosv3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65234B3E668A42D9137B2C7AB051EE37 /* FlipperKit */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = FlipperKit; path = libFlipperKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D0A19C165FA1126B1360680FE6DB12 /* Yoga */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = Yoga; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		666E72807891C591E025A75410CD2A26 /* React-perflogger */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-perflogger"; path = "libReact-perflogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7511,6 +7512,7 @@
 		6FFB7B2992BB53405E6B771A5BA1E97D /* DoubleConversion */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = DoubleConversion; path = libDoubleConversion.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		802121F5B756ACBFDD6D08C36246DADD /* React-RCTLinking */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-RCTLinking"; path = "libReact-RCTLinking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C409F2589AFDAFE8963C18E293F9AF /* RNSoundPlayer */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = RNSoundPlayer; path = libRNSoundPlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		82BCA1025F1B736CCE120E522857C185 /* Pods-stellasonosv3-stellasonosv3Tests */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-stellasonosv3-stellasonosv3Tests"; path = "libPods-stellasonosv3-stellasonosv3Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85A01882ED06DFEA2E0CE78BCDB204A7 /* SocketRocket */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = SocketRocket; path = libSocketRocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8998273719FDD789E6F9C7541AFD0B33 /* RNVectorIcons */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = RNVectorIcons; path = libRNVectorIcons.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F65F9361F2069CF9E9D751272968DE4 /* RNGestureHandler */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = RNGestureHandler; path = libRNGestureHandler.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7518,7 +7520,6 @@
 		99D5CD245388DC76AAEF6E1E351A90ED /* Flipper-Folly */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Flipper-Folly"; path = "libFlipper-Folly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B49761F8D1EB12585DD45CAA2E489F /* React-logger */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-logger"; path = "libReact-logger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68E5A9B69A3BA0FD52CAF7A354EC93B /* React-RCTNetwork */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-RCTNetwork"; path = "libReact-RCTNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6A37D7CBBD780C1ED26D29676DD37B2 /* Pods-stellasonosv3_1-stellasonosv3_1Tests */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-stellasonosv3_1-stellasonosv3_1Tests"; path = "libPods-stellasonosv3_1-stellasonosv3_1Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBB7F62B267CC7C9BBBAE41DE94743B /* Flipper-PeerTalk */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Flipper-PeerTalk"; path = "libFlipper-PeerTalk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1635F27E3A2D84289F4DD21CEFE57BA /* ReactNativeAudioToolkit */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = ReactNativeAudioToolkit; path = libReactNativeAudioToolkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CD4B9B578CE9FA38114B638C9CAA78 /* RNCMaskedView */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = RNCMaskedView; path = libRNCMaskedView.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7530,7 +7531,6 @@
 		E6A16705C69FC7DE11C2469A4A0F8358 /* React-RCTText */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-RCTText"; path = "libReact-RCTText.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7178FECB829C9576A3723658B07F087 /* React-Codegen */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-Codegen"; path = "libReact-Codegen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93F701CA8EB196D77AE99E094D873E4 /* Flipper */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = Flipper; path = libFlipper.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9BDE5C7D79426BE18178C3DBD98A812 /* Pods-stellasonosv3_1 */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-stellasonosv3_1"; path = "libPods-stellasonosv3_1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDBF403E8E0B3885E65C2741B536BC5 /* React-RCTImage */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-RCTImage"; path = "libReact-RCTImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E7C88DFCD460A4B46B913ADEB8A641 /* React-jsiexecutor */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-jsiexecutor"; path = "libReact-jsiexecutor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4BDA69E3BCB0166D49FB679ABADCA00 /* fmt */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = fmt; path = libfmt.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7902,8 +7902,8 @@
 				F4BDA69E3BCB0166D49FB679ABADCA00 /* fmt */,
 				3CA7A9404CCDD6BA22C97F8348CE3209 /* glog */,
 				FB6FAD8F0183E86ACBFBD8A81BA7BF3A /* libevent */,
-				E9BDE5C7D79426BE18178C3DBD98A812 /* Pods-stellasonosv3_1 */,
-				A6A37D7CBBD780C1ED26D29676DD37B2 /* Pods-stellasonosv3_1-stellasonosv3_1Tests */,
+				62F9E77324C82A470452046504C467D8 /* Pods-stellasonosv3 */,
+				82BCA1025F1B736CCE120E522857C185 /* Pods-stellasonosv3-stellasonosv3Tests */,
 				1936453FF2A7E3A13063C4917C4D5598 /* RCT-Folly */,
 				F958876A082BF810B342435CE3FB5AF6 /* RCTTypeSafety */,
 				68D0E680E3D787063C2716E812E2A5AE /* React-bridging */,
@@ -7951,8 +7951,8 @@
 		46EB2E00000070 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				46EB2E00017700 /* Pods-stellasonosv3_1 */,
-				46EB2E00017840 /* Pods-stellasonosv3_1-stellasonosv3_1Tests */,
+				46EB2E00017700 /* Pods-stellasonosv3 */,
+				46EB2E00017840 /* Pods-stellasonosv3-stellasonosv3Tests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -12799,38 +12799,38 @@
 			path = "../../ios/Pods/Target Support Files/react-native-safe-area-context";
 			sourceTree = "<group>";
 		};
-		46EB2E00017700 /* Pods-stellasonosv3_1 */ = {
+		46EB2E00017700 /* Pods-stellasonosv3 */ = {
 			isa = PBXGroup;
 			children = (
-				46EB2E00017730 /* Pods-stellasonosv3_1.modulemap */,
-				46EB2E00017790 /* Pods-stellasonosv3_1-acknowledgements.markdown */,
-				46EB2E00017780 /* Pods-stellasonosv3_1-acknowledgements.plist */,
-				46EB2E000177A0 /* Pods-stellasonosv3_1-dummy.m */,
-				46EB2E00017760 /* Pods-stellasonosv3_1-frameworks.sh */,
-				46EB2E00017770 /* Pods-stellasonosv3_1-resources.sh */,
-				46EB2E00017740 /* Pods-stellasonosv3_1-umbrella.h */,
-				46EB2E00017720 /* Pods-stellasonosv3_1.debug.xcconfig */,
-				46EB2E00017710 /* Pods-stellasonosv3_1.release.xcconfig */,
+				46EB2E00017730 /* Pods-stellasonosv3.modulemap */,
+				46EB2E00017790 /* Pods-stellasonosv3-acknowledgements.markdown */,
+				46EB2E00017780 /* Pods-stellasonosv3-acknowledgements.plist */,
+				46EB2E000177A0 /* Pods-stellasonosv3-dummy.m */,
+				46EB2E00017760 /* Pods-stellasonosv3-frameworks.sh */,
+				46EB2E00017770 /* Pods-stellasonosv3-resources.sh */,
+				46EB2E00017740 /* Pods-stellasonosv3-umbrella.h */,
+				46EB2E00017720 /* Pods-stellasonosv3.debug.xcconfig */,
+				46EB2E00017710 /* Pods-stellasonosv3.release.xcconfig */,
 			);
-			name = "Pods-stellasonosv3_1";
-			path = "Target Support Files/Pods-stellasonosv3_1";
+			name = "Pods-stellasonosv3";
+			path = "Target Support Files/Pods-stellasonosv3";
 			sourceTree = "<group>";
 		};
-		46EB2E00017840 /* Pods-stellasonosv3_1-stellasonosv3_1Tests */ = {
+		46EB2E00017840 /* Pods-stellasonosv3-stellasonosv3Tests */ = {
 			isa = PBXGroup;
 			children = (
-				46EB2E00017870 /* Pods-stellasonosv3_1-stellasonosv3_1Tests.modulemap */,
-				46EB2E000178D0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-acknowledgements.markdown */,
-				46EB2E000178C0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-acknowledgements.plist */,
-				46EB2E000178E0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-dummy.m */,
-				46EB2E000178A0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-frameworks.sh */,
-				46EB2E000178B0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-resources.sh */,
-				46EB2E00017880 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-umbrella.h */,
-				46EB2E00017860 /* Pods-stellasonosv3_1-stellasonosv3_1Tests.debug.xcconfig */,
-				46EB2E00017850 /* Pods-stellasonosv3_1-stellasonosv3_1Tests.release.xcconfig */,
+				46EB2E00017870 /* Pods-stellasonosv3-stellasonosv3Tests.modulemap */,
+				46EB2E000178D0 /* Pods-stellasonosv3-stellasonosv3Tests-acknowledgements.markdown */,
+				46EB2E000178C0 /* Pods-stellasonosv3-stellasonosv3Tests-acknowledgements.plist */,
+				46EB2E000178E0 /* Pods-stellasonosv3-stellasonosv3Tests-dummy.m */,
+				46EB2E000178A0 /* Pods-stellasonosv3-stellasonosv3Tests-frameworks.sh */,
+				46EB2E000178B0 /* Pods-stellasonosv3-stellasonosv3Tests-resources.sh */,
+				46EB2E00017880 /* Pods-stellasonosv3-stellasonosv3Tests-umbrella.h */,
+				46EB2E00017860 /* Pods-stellasonosv3-stellasonosv3Tests.debug.xcconfig */,
+				46EB2E00017850 /* Pods-stellasonosv3-stellasonosv3Tests.release.xcconfig */,
 			);
-			name = "Pods-stellasonosv3_1-stellasonosv3_1Tests";
-			path = "Target Support Files/Pods-stellasonosv3_1-stellasonosv3_1Tests";
+			name = "Pods-stellasonosv3-stellasonosv3Tests";
+			path = "Target Support Files/Pods-stellasonosv3-stellasonosv3Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -14879,7 +14879,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46EB2E00017750 /* Pods-stellasonosv3_1-umbrella.h in Headers */,
+				46EB2E00017750 /* Pods-stellasonosv3-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -14887,7 +14887,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46EB2E00017890 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-umbrella.h in Headers */,
+				46EB2E00017890 /* Pods-stellasonosv3-stellasonosv3Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -14926,78 +14926,6 @@
 			name = libevent;
 			productName = libevent;
 			productReference = FB6FAD8F0183E86ACBFBD8A81BA7BF3A /* libevent */;
-			productType = "com.apple.product-type.library.static";
-		};
-		0799BA5BA0DA2FDF92012A4F8EAD03D5 /* Pods-stellasonosv3_1 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 46EB2E00017690 /* Build configuration list for PBXNativeTarget "Pods-stellasonosv3_1" */;
-			buildPhases = (
-				46EB2E000176D0 /* Headers */,
-				46EB2E000176E0 /* Sources */,
-				46EB2E000176F0 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				46EB2E00017950 /* PBXTargetDependency */,
-				46EB2E00017970 /* PBXTargetDependency */,
-				46EB2E00017990 /* PBXTargetDependency */,
-				46EB2E000179B0 /* PBXTargetDependency */,
-				46EB2E000179D0 /* PBXTargetDependency */,
-				46EB2E000179F0 /* PBXTargetDependency */,
-				46EB2E00017A10 /* PBXTargetDependency */,
-				46EB2E00017A30 /* PBXTargetDependency */,
-				46EB2E00017A50 /* PBXTargetDependency */,
-				46EB2E00017A70 /* PBXTargetDependency */,
-				46EB2E00017A90 /* PBXTargetDependency */,
-				46EB2E00017AB0 /* PBXTargetDependency */,
-				46EB2E00017AD0 /* PBXTargetDependency */,
-				46EB2E00017AF0 /* PBXTargetDependency */,
-				46EB2E00017B10 /* PBXTargetDependency */,
-				46EB2E00017B30 /* PBXTargetDependency */,
-				46EB2E00017B50 /* PBXTargetDependency */,
-				46EB2E00017B70 /* PBXTargetDependency */,
-				46EB2E00017B90 /* PBXTargetDependency */,
-				46EB2E00017BB0 /* PBXTargetDependency */,
-				46EB2E00017BD0 /* PBXTargetDependency */,
-				46EB2E00017BF0 /* PBXTargetDependency */,
-				46EB2E00017C10 /* PBXTargetDependency */,
-				46EB2E00017C30 /* PBXTargetDependency */,
-				46EB2E00017C50 /* PBXTargetDependency */,
-				46EB2E00017C70 /* PBXTargetDependency */,
-				46EB2E00017C90 /* PBXTargetDependency */,
-				46EB2E00017CB0 /* PBXTargetDependency */,
-				46EB2E00017CD0 /* PBXTargetDependency */,
-				46EB2E00017CF0 /* PBXTargetDependency */,
-				46EB2E00017D10 /* PBXTargetDependency */,
-				46EB2E00017D30 /* PBXTargetDependency */,
-				46EB2E00017D50 /* PBXTargetDependency */,
-				46EB2E00017D70 /* PBXTargetDependency */,
-				46EB2E00017D90 /* PBXTargetDependency */,
-				46EB2E00017DB0 /* PBXTargetDependency */,
-				46EB2E00017DD0 /* PBXTargetDependency */,
-				46EB2E00017DF0 /* PBXTargetDependency */,
-				46EB2E00017E10 /* PBXTargetDependency */,
-				46EB2E00017E30 /* PBXTargetDependency */,
-				46EB2E00017E50 /* PBXTargetDependency */,
-				46EB2E00017E70 /* PBXTargetDependency */,
-				46EB2E00017E90 /* PBXTargetDependency */,
-				46EB2E00017EB0 /* PBXTargetDependency */,
-				46EB2E00017ED0 /* PBXTargetDependency */,
-				46EB2E00017EF0 /* PBXTargetDependency */,
-				46EB2E00017F10 /* PBXTargetDependency */,
-				46EB2E00017F30 /* PBXTargetDependency */,
-				46EB2E00017F50 /* PBXTargetDependency */,
-				46EB2E00017F70 /* PBXTargetDependency */,
-				46EB2E00017F90 /* PBXTargetDependency */,
-				46EB2E00017FB0 /* PBXTargetDependency */,
-				46EB2E00017FD0 /* PBXTargetDependency */,
-				46EB2E00017FF0 /* PBXTargetDependency */,
-				46EB2E00018010 /* PBXTargetDependency */,
-			);
-			name = "Pods-stellasonosv3_1";
-			productName = "Pods-stellasonosv3_1";
-			productReference = E9BDE5C7D79426BE18178C3DBD98A812 /* Pods-stellasonosv3_1 */;
 			productType = "com.apple.product-type.library.static";
 		};
 		083B602EA19B4AD50EC53C0602F29A7D /* React-logger */ = {
@@ -15211,6 +15139,78 @@
 			productReference = EEDBF403E8E0B3885E65C2741B536BC5 /* React-RCTImage */;
 			productType = "com.apple.product-type.library.static";
 		};
+		5064339181A8A006D2FD06FA1669E421 /* Pods-stellasonosv3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46EB2E00017690 /* Build configuration list for PBXNativeTarget "Pods-stellasonosv3" */;
+			buildPhases = (
+				46EB2E000176D0 /* Headers */,
+				46EB2E000176E0 /* Sources */,
+				46EB2E000176F0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46EB2E00017950 /* PBXTargetDependency */,
+				46EB2E00017970 /* PBXTargetDependency */,
+				46EB2E00017990 /* PBXTargetDependency */,
+				46EB2E000179B0 /* PBXTargetDependency */,
+				46EB2E000179D0 /* PBXTargetDependency */,
+				46EB2E000179F0 /* PBXTargetDependency */,
+				46EB2E00017A10 /* PBXTargetDependency */,
+				46EB2E00017A30 /* PBXTargetDependency */,
+				46EB2E00017A50 /* PBXTargetDependency */,
+				46EB2E00017A70 /* PBXTargetDependency */,
+				46EB2E00017A90 /* PBXTargetDependency */,
+				46EB2E00017AB0 /* PBXTargetDependency */,
+				46EB2E00017AD0 /* PBXTargetDependency */,
+				46EB2E00017AF0 /* PBXTargetDependency */,
+				46EB2E00017B10 /* PBXTargetDependency */,
+				46EB2E00017B30 /* PBXTargetDependency */,
+				46EB2E00017B50 /* PBXTargetDependency */,
+				46EB2E00017B70 /* PBXTargetDependency */,
+				46EB2E00017B90 /* PBXTargetDependency */,
+				46EB2E00017BB0 /* PBXTargetDependency */,
+				46EB2E00017BD0 /* PBXTargetDependency */,
+				46EB2E00017BF0 /* PBXTargetDependency */,
+				46EB2E00017C10 /* PBXTargetDependency */,
+				46EB2E00017C30 /* PBXTargetDependency */,
+				46EB2E00017C50 /* PBXTargetDependency */,
+				46EB2E00017C70 /* PBXTargetDependency */,
+				46EB2E00017C90 /* PBXTargetDependency */,
+				46EB2E00017CB0 /* PBXTargetDependency */,
+				46EB2E00017CD0 /* PBXTargetDependency */,
+				46EB2E00017CF0 /* PBXTargetDependency */,
+				46EB2E00017D10 /* PBXTargetDependency */,
+				46EB2E00017D30 /* PBXTargetDependency */,
+				46EB2E00017D50 /* PBXTargetDependency */,
+				46EB2E00017D70 /* PBXTargetDependency */,
+				46EB2E00017D90 /* PBXTargetDependency */,
+				46EB2E00017DB0 /* PBXTargetDependency */,
+				46EB2E00017DD0 /* PBXTargetDependency */,
+				46EB2E00017DF0 /* PBXTargetDependency */,
+				46EB2E00017E10 /* PBXTargetDependency */,
+				46EB2E00017E30 /* PBXTargetDependency */,
+				46EB2E00017E50 /* PBXTargetDependency */,
+				46EB2E00017E70 /* PBXTargetDependency */,
+				46EB2E00017E90 /* PBXTargetDependency */,
+				46EB2E00017EB0 /* PBXTargetDependency */,
+				46EB2E00017ED0 /* PBXTargetDependency */,
+				46EB2E00017EF0 /* PBXTargetDependency */,
+				46EB2E00017F10 /* PBXTargetDependency */,
+				46EB2E00017F30 /* PBXTargetDependency */,
+				46EB2E00017F50 /* PBXTargetDependency */,
+				46EB2E00017F70 /* PBXTargetDependency */,
+				46EB2E00017F90 /* PBXTargetDependency */,
+				46EB2E00017FB0 /* PBXTargetDependency */,
+				46EB2E00017FD0 /* PBXTargetDependency */,
+				46EB2E00017FF0 /* PBXTargetDependency */,
+				46EB2E00018010 /* PBXTargetDependency */,
+			);
+			name = "Pods-stellasonosv3";
+			productName = "Pods-stellasonosv3";
+			productReference = 62F9E77324C82A470452046504C467D8 /* Pods-stellasonosv3 */;
+			productType = "com.apple.product-type.library.static";
+		};
 		53D121F9F9BB0F8AC1C94A12C5A8572F /* React-RCTVibration */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46EB2E00015490 /* Build configuration list for PBXNativeTarget "React-RCTVibration" */;
@@ -15290,78 +15290,6 @@
 			name = "React-RCTNetwork";
 			productName = "React-RCTNetwork";
 			productReference = A68E5A9B69A3BA0FD52CAF7A354EC93B /* React-RCTNetwork */;
-			productType = "com.apple.product-type.library.static";
-		};
-		65CCA4BC7669BBBB3574DFD480B09D83 /* Pods-stellasonosv3_1-stellasonosv3_1Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 46EB2E000177D0 /* Build configuration list for PBXNativeTarget "Pods-stellasonosv3_1-stellasonosv3_1Tests" */;
-			buildPhases = (
-				46EB2E00017810 /* Headers */,
-				46EB2E00017820 /* Sources */,
-				46EB2E00017830 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				46EB2E00018030 /* PBXTargetDependency */,
-				46EB2E00018050 /* PBXTargetDependency */,
-				46EB2E00018070 /* PBXTargetDependency */,
-				46EB2E00018090 /* PBXTargetDependency */,
-				46EB2E000180B0 /* PBXTargetDependency */,
-				46EB2E000180D0 /* PBXTargetDependency */,
-				46EB2E000180F0 /* PBXTargetDependency */,
-				46EB2E00018110 /* PBXTargetDependency */,
-				46EB2E00018130 /* PBXTargetDependency */,
-				46EB2E00018150 /* PBXTargetDependency */,
-				46EB2E00018170 /* PBXTargetDependency */,
-				46EB2E00018190 /* PBXTargetDependency */,
-				46EB2E000181B0 /* PBXTargetDependency */,
-				46EB2E000181D0 /* PBXTargetDependency */,
-				46EB2E000181F0 /* PBXTargetDependency */,
-				46EB2E00018210 /* PBXTargetDependency */,
-				46EB2E00018230 /* PBXTargetDependency */,
-				46EB2E00018250 /* PBXTargetDependency */,
-				46EB2E00018270 /* PBXTargetDependency */,
-				46EB2E00018290 /* PBXTargetDependency */,
-				46EB2E000182B0 /* PBXTargetDependency */,
-				46EB2E000182D0 /* PBXTargetDependency */,
-				46EB2E000182F0 /* PBXTargetDependency */,
-				46EB2E00018310 /* PBXTargetDependency */,
-				46EB2E00018330 /* PBXTargetDependency */,
-				46EB2E00018350 /* PBXTargetDependency */,
-				46EB2E00018370 /* PBXTargetDependency */,
-				46EB2E00018390 /* PBXTargetDependency */,
-				46EB2E000183B0 /* PBXTargetDependency */,
-				46EB2E000183D0 /* PBXTargetDependency */,
-				46EB2E000183F0 /* PBXTargetDependency */,
-				46EB2E00018410 /* PBXTargetDependency */,
-				46EB2E00018430 /* PBXTargetDependency */,
-				46EB2E00018450 /* PBXTargetDependency */,
-				46EB2E00018470 /* PBXTargetDependency */,
-				46EB2E00018490 /* PBXTargetDependency */,
-				46EB2E000184B0 /* PBXTargetDependency */,
-				46EB2E000184D0 /* PBXTargetDependency */,
-				46EB2E000184F0 /* PBXTargetDependency */,
-				46EB2E00018510 /* PBXTargetDependency */,
-				46EB2E00018530 /* PBXTargetDependency */,
-				46EB2E00018550 /* PBXTargetDependency */,
-				46EB2E00018570 /* PBXTargetDependency */,
-				46EB2E00018590 /* PBXTargetDependency */,
-				46EB2E000185B0 /* PBXTargetDependency */,
-				46EB2E000185D0 /* PBXTargetDependency */,
-				46EB2E000185F0 /* PBXTargetDependency */,
-				46EB2E00018610 /* PBXTargetDependency */,
-				46EB2E00018630 /* PBXTargetDependency */,
-				46EB2E00018650 /* PBXTargetDependency */,
-				46EB2E00018670 /* PBXTargetDependency */,
-				46EB2E00018690 /* PBXTargetDependency */,
-				46EB2E000186B0 /* PBXTargetDependency */,
-				46EB2E000186D0 /* PBXTargetDependency */,
-				46EB2E000186F0 /* PBXTargetDependency */,
-			);
-			name = "Pods-stellasonosv3_1-stellasonosv3_1Tests";
-			productName = "Pods-stellasonosv3_1-stellasonosv3_1Tests";
-			productReference = A6A37D7CBBD780C1ED26D29676DD37B2 /* Pods-stellasonosv3_1-stellasonosv3_1Tests */;
 			productType = "com.apple.product-type.library.static";
 		};
 		66B8F5758E6F90E16807A85C003CE61F /* React-Codegen */ = {
@@ -15646,6 +15574,78 @@
 			name = ReactCommon;
 			productName = ReactCommon;
 			productReference = D5C775614AC76D44CECB6BE08B022F1F /* ReactCommon */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B94140463B1998552A567EC45A87E4D6 /* Pods-stellasonosv3-stellasonosv3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46EB2E000177D0 /* Build configuration list for PBXNativeTarget "Pods-stellasonosv3-stellasonosv3Tests" */;
+			buildPhases = (
+				46EB2E00017810 /* Headers */,
+				46EB2E00017820 /* Sources */,
+				46EB2E00017830 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46EB2E00018030 /* PBXTargetDependency */,
+				46EB2E00018050 /* PBXTargetDependency */,
+				46EB2E00018070 /* PBXTargetDependency */,
+				46EB2E00018090 /* PBXTargetDependency */,
+				46EB2E000180B0 /* PBXTargetDependency */,
+				46EB2E000180D0 /* PBXTargetDependency */,
+				46EB2E000180F0 /* PBXTargetDependency */,
+				46EB2E00018110 /* PBXTargetDependency */,
+				46EB2E00018130 /* PBXTargetDependency */,
+				46EB2E00018150 /* PBXTargetDependency */,
+				46EB2E00018170 /* PBXTargetDependency */,
+				46EB2E00018190 /* PBXTargetDependency */,
+				46EB2E000181B0 /* PBXTargetDependency */,
+				46EB2E000181D0 /* PBXTargetDependency */,
+				46EB2E000181F0 /* PBXTargetDependency */,
+				46EB2E00018210 /* PBXTargetDependency */,
+				46EB2E00018230 /* PBXTargetDependency */,
+				46EB2E00018250 /* PBXTargetDependency */,
+				46EB2E00018270 /* PBXTargetDependency */,
+				46EB2E00018290 /* PBXTargetDependency */,
+				46EB2E000182B0 /* PBXTargetDependency */,
+				46EB2E000182D0 /* PBXTargetDependency */,
+				46EB2E000182F0 /* PBXTargetDependency */,
+				46EB2E00018310 /* PBXTargetDependency */,
+				46EB2E00018330 /* PBXTargetDependency */,
+				46EB2E00018350 /* PBXTargetDependency */,
+				46EB2E00018370 /* PBXTargetDependency */,
+				46EB2E00018390 /* PBXTargetDependency */,
+				46EB2E000183B0 /* PBXTargetDependency */,
+				46EB2E000183D0 /* PBXTargetDependency */,
+				46EB2E000183F0 /* PBXTargetDependency */,
+				46EB2E00018410 /* PBXTargetDependency */,
+				46EB2E00018430 /* PBXTargetDependency */,
+				46EB2E00018450 /* PBXTargetDependency */,
+				46EB2E00018470 /* PBXTargetDependency */,
+				46EB2E00018490 /* PBXTargetDependency */,
+				46EB2E000184B0 /* PBXTargetDependency */,
+				46EB2E000184D0 /* PBXTargetDependency */,
+				46EB2E000184F0 /* PBXTargetDependency */,
+				46EB2E00018510 /* PBXTargetDependency */,
+				46EB2E00018530 /* PBXTargetDependency */,
+				46EB2E00018550 /* PBXTargetDependency */,
+				46EB2E00018570 /* PBXTargetDependency */,
+				46EB2E00018590 /* PBXTargetDependency */,
+				46EB2E000185B0 /* PBXTargetDependency */,
+				46EB2E000185D0 /* PBXTargetDependency */,
+				46EB2E000185F0 /* PBXTargetDependency */,
+				46EB2E00018610 /* PBXTargetDependency */,
+				46EB2E00018630 /* PBXTargetDependency */,
+				46EB2E00018650 /* PBXTargetDependency */,
+				46EB2E00018670 /* PBXTargetDependency */,
+				46EB2E00018690 /* PBXTargetDependency */,
+				46EB2E000186B0 /* PBXTargetDependency */,
+				46EB2E000186D0 /* PBXTargetDependency */,
+				46EB2E000186F0 /* PBXTargetDependency */,
+			);
+			name = "Pods-stellasonosv3-stellasonosv3Tests";
+			productName = "Pods-stellasonosv3-stellasonosv3Tests";
+			productReference = 82BCA1025F1B736CCE120E522857C185 /* Pods-stellasonosv3-stellasonosv3Tests */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B9E8F4CA2A4A8599389FEB665A9B96FF /* RNGestureHandler */ = {
@@ -16001,8 +16001,8 @@
 				D0EFEFB685D97280256C559792236873 /* glog */,
 				04A30E186743192DFB26B0FD7DB8F250 /* libevent */,
 				B9ED5194E665042005069EF06C82A050 /* OpenSSL-Universal */,
-				0799BA5BA0DA2FDF92012A4F8EAD03D5 /* Pods-stellasonosv3_1 */,
-				65CCA4BC7669BBBB3574DFD480B09D83 /* Pods-stellasonosv3_1-stellasonosv3_1Tests */,
+				5064339181A8A006D2FD06FA1669E421 /* Pods-stellasonosv3 */,
+				B94140463B1998552A567EC45A87E4D6 /* Pods-stellasonosv3-stellasonosv3Tests */,
 				EC55D52694092A9D0E6A78EB01207EB5 /* RCT-Folly */,
 				E7E7CE52C8C68B17224FF8C262D80ABF /* RCTRequired */,
 				D20469A9A1E5CFB26045EAEBE3F88E5E /* RCTTypeSafety */,
@@ -17385,7 +17385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46EB2E000177B0 /* Pods-stellasonosv3_1-dummy.m in Sources */,
+				46EB2E000177B0 /* Pods-stellasonosv3-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -17393,7 +17393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46EB2E000178F0 /* Pods-stellasonosv3_1-stellasonosv3_1Tests-dummy.m in Sources */,
+				46EB2E000178F0 /* Pods-stellasonosv3-stellasonosv3Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -22474,7 +22474,7 @@
 		};
 		46EB2E000176A0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46EB2E00017710 /* Pods-stellasonosv3_1.release.xcconfig */;
+			baseConfigurationReference = 46EB2E00017710 /* Pods-stellasonosv3.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -22483,7 +22483,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-stellasonosv3_1/Pods-stellasonosv3_1.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-stellasonosv3/Pods-stellasonosv3.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -22497,7 +22497,7 @@
 		};
 		46EB2E000176B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46EB2E00017720 /* Pods-stellasonosv3_1.debug.xcconfig */;
+			baseConfigurationReference = 46EB2E00017720 /* Pods-stellasonosv3.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -22506,7 +22506,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-stellasonosv3_1/Pods-stellasonosv3_1.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-stellasonosv3/Pods-stellasonosv3.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -22519,7 +22519,7 @@
 		};
 		46EB2E000177E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46EB2E00017850 /* Pods-stellasonosv3_1-stellasonosv3_1Tests.release.xcconfig */;
+			baseConfigurationReference = 46EB2E00017850 /* Pods-stellasonosv3-stellasonosv3Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -22528,7 +22528,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-stellasonosv3_1-stellasonosv3_1Tests/Pods-stellasonosv3_1-stellasonosv3_1Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-stellasonosv3-stellasonosv3Tests/Pods-stellasonosv3-stellasonosv3Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -22542,7 +22542,7 @@
 		};
 		46EB2E000177F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46EB2E00017860 /* Pods-stellasonosv3_1-stellasonosv3_1Tests.debug.xcconfig */;
+			baseConfigurationReference = 46EB2E00017860 /* Pods-stellasonosv3-stellasonosv3Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -22551,7 +22551,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-stellasonosv3_1-stellasonosv3_1Tests/Pods-stellasonosv3_1-stellasonosv3_1Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-stellasonosv3-stellasonosv3Tests/Pods-stellasonosv3-stellasonosv3Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -23078,7 +23078,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		46EB2E00017690 /* Build configuration list for PBXNativeTarget "Pods-stellasonosv3_1" */ = {
+		46EB2E00017690 /* Build configuration list for PBXNativeTarget "Pods-stellasonosv3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46EB2E000176B0 /* Debug */,
@@ -23087,7 +23087,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		46EB2E000177D0 /* Build configuration list for PBXNativeTarget "Pods-stellasonosv3_1-stellasonosv3_1Tests" */ = {
+		46EB2E000177D0 /* Build configuration list for PBXNativeTarget "Pods-stellasonosv3-stellasonosv3Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46EB2E000177F0 /* Debug */,

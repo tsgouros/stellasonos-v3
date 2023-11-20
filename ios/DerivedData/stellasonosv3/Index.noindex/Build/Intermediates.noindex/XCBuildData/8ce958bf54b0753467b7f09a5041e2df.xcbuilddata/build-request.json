@@ -1,0 +1,61 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "031b6b4cb5ebbf20419902afd87b0b5cb8656357b4e3c9cbdedf6d0daf7e7987"
+    },
+    {
+      "guid" : "031b6b4cb5ebbf20419902afd87b0b5c7ceb6b36bcfc2fb90f69ac96de4975d6"
+    }
+  ],
+  "containerPath" : "/Users/yumengma/Desktop/stellasonos-v3/ios/stellasonosv3.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator17.0",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/yumengma/Desktop/stellasonos-v3/ios/DerivedData/stellasonosv3/Index.noindex/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/yumengma/Desktop/stellasonos-v3/ios/DerivedData/stellasonosv3/Index.noindex/Build/Products",
+      "derivedDataPath" : "/Users/yumengma/Desktop/stellasonos-v3/ios/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/yumengma/Desktop/stellasonos-v3/ios/DerivedData/stellasonosv3/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/yumengma/Desktop/stellasonos-v3/ios/DerivedData/stellasonosv3/Index.noindex/PrecompiledHeaders",
+      "indexRegularBuildIntermediatesPath" : "/Users/yumengma/Desktop/stellasonos-v3/ios/DerivedData/stellasonosv3/Build/Intermediates.noindex",
+      "indexRegularBuildProductsPath" : "/Users/yumengma/Desktop/stellasonos-v3/ios/DerivedData/stellasonosv3/Build/Products",
+      "pchPath" : "/Users/yumengma/Desktop/stellasonos-v3/ios/DerivedData/stellasonosv3/Index.noindex/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "utility",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

@@ -1,0 +1,6 @@
+module Pods_stellasonosv3_stellasonosv3Tests {
+  umbrella header "Pods-stellasonosv3-stellasonosv3Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

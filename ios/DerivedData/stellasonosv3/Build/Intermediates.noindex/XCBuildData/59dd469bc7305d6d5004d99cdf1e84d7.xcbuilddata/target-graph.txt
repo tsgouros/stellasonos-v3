@@ -1,0 +1,2 @@
+Target dependency graph (1 target)
+Target 'stellasonosv3' in project 'stellasonosv3' (no dependencies)

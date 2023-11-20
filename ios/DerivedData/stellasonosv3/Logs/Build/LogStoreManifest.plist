@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>0ECFCAB0-F020-4E6C-B466-A50EA1329DA7</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0ECFCAB0-F020-4E6C-B466-A50EA1329DA7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>2</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>stellasonosv3 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>stellasonosv3</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build stellasonosv3</string>
+			<key>timeStartedRecording</key>
+			<real>721435592.34403098</real>
+			<key>timeStoppedRecording</key>
+			<real>721435605.37579405</real>
+			<key>title</key>
+			<string>Build stellasonosv3</string>
+			<key>uniqueIdentifier</key>
+			<string>0ECFCAB0-F020-4E6C-B466-A50EA1329DA7</string>
+		</dict>
+		<key>65FDAD80-EB2A-422D-828C-F3645CE31277</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>65FDAD80-EB2A-422D-828C-F3645CE31277.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>2</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>stellasonosv3 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>stellasonosv3</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build stellasonosv3</string>
+			<key>timeStartedRecording</key>
+			<real>721435332.47893798</real>
+			<key>timeStoppedRecording</key>
+			<real>721435336.51864803</real>
+			<key>title</key>
+			<string>Build stellasonosv3</string>
+			<key>uniqueIdentifier</key>
+			<string>65FDAD80-EB2A-422D-828C-F3645CE31277</string>
+		</dict>
+		<key>88F16F1F-F6DA-4265-BDEB-750CC3E2A087</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>88F16F1F-F6DA-4265-BDEB-750CC3E2A087.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>2</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>2</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>stellasonosv3 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>stellasonosv3</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build stellasonosv3</string>
+			<key>timeStartedRecording</key>
+			<real>721435026.23612905</real>
+			<key>timeStoppedRecording</key>
+			<real>721435027.80865204</real>
+			<key>title</key>
+			<string>Build stellasonosv3</string>
+			<key>uniqueIdentifier</key>
+			<string>88F16F1F-F6DA-4265-BDEB-750CC3E2A087</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

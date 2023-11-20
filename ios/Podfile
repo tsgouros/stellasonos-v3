@@ -6,7 +6,7 @@ install! 'cocoapods', :deterministic_uuids => false
 
 production = ENV["PRODUCTION"] == "1"
 
-target 'stellasonosv3_1' do
+target 'stellasonosv3' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -23,7 +23,7 @@ target 'stellasonosv3_1' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'stellasonosv3_1Tests' do
+  target 'stellasonosv3Tests' do
     inherit! :complete
     # Pods for testing
   end

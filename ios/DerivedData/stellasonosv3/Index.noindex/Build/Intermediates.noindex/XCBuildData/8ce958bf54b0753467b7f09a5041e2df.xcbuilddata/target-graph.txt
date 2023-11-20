@@ -1,0 +1,8 @@
+Target dependency graph (5 targets)
+Target 'stellasonosv3Tests' in project 'stellasonosv3' (no dependencies)
+Target 'stellasonosv3Tests' in project 'stellasonosv3'
+➜ Explicit dependency on target 'stellasonosv3' in project 'stellasonosv3'
+Target 'stellasonosv3' in project 'stellasonosv3' (no dependencies)
+Target 'stellasonosv3Tests' in project 'stellasonosv3'
+➜ Explicit dependency on target 'stellasonosv3' in project 'stellasonosv3'
+Target 'stellasonosv3' in project 'stellasonosv3' (no dependencies)
