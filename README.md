@@ -26,7 +26,7 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About
 
 Sonification of astronomical data version 3. In collaboration with scientists from the Smithsonian Observatory and NASA, Brwon University is developing a visualization application for phones and tablets for looking at distant stellar objects with sounds and haptic feedback, for Blind and Visually Impaired (BVI) users, as well as everyone else.
 
