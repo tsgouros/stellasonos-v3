@@ -19,12 +19,12 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Android Emulator</a></li>
-        <li><a href="#installation">React Native Environment</a></li>
+        <li><a href="#Android Emulator">Android Emulator</a></li>
+        <li><a href="#React Native Environment">React Native Environment</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Features</a></li>
-    <li><a href="#license">Todos</a></li>
+    <li><a href="#Features">Features</a></li>
+    <li><a href="#Todos">Todos</a></li>
   </ol>
 </details>
 
