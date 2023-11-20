@@ -1,8 +1,6 @@
 
 <a name="readme-top"></a>
-
-
-<!-- PROJECT LOGO -->
+<!-- PROJECT -->
 <br />
 <div align="center">
   <h3 align="center">Stellasonos-v3</h3>
