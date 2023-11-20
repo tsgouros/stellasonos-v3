@@ -140,15 +140,9 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- TODO -->
-## Todo
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+<!-- Features -->
+## Features 
+- to be completed 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
