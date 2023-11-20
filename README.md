@@ -1,5 +1,4 @@
 <!-- PROJECT -->
-<br />
 <div align="center">
   <h3 align="center">Stellasonos-v3</h3>
 </div>
