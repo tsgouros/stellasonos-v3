@@ -33,13 +33,13 @@
 
 Sonification of astronomical data version 3. In collaboration with scientists from the Smithsonian Observatory and NASA, Brwon University is developing a visualization application for phones and tablets for looking at distant stellar objects with sounds and haptic feedback, for Blind and Visually Impaired (BVI) users, as well as everyone else.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 
 ### Built With
 [React Native](https://reactnative.dev/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 
 <!-- GETTING STARTED -->
@@ -80,7 +80,7 @@ To install Android Emulator, download the Android Studio suite:
   source ~/.zprofile
   ```
   or for bash:
-    ```sh
+  ```sh
   source ~/.bash_profile
   ```
 13. Verify that `ANDROID_HOME` has been set:
@@ -89,7 +89,7 @@ To install Android Emulator, download the Android Studio suite:
   ```
   and the appropriate directories have been added to your path:
   ```sh
-    echo $PATH.
+    echo $PATH
   ```
 14. You will need an Android device to run your React Native Android app. This can be either a physical Android device, or more commonly, you can use an Android Virtual Device which allows you to emulate an Android device on your computer.
 15. From the Android Studio Welcome screen, select the “More Actions” button > “Virtual Device Manager”.
@@ -127,13 +127,13 @@ The following instructions have been adapted from [React Native’s documentatio
    npx react-native run-android --no-jetifier
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 <!-- Features -->
 ## Features 
 - to be completed 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 <!-- Todos -->
 ## Todos
@@ -153,5 +153,5 @@ Some other things to consider
 " I imagine this MultiImage object would work best as managing a collection of comparable SingleImage objects with similar methods that don't require the 'key' argument."
 Yes, I'm thinking maybe a dictionary or map where keys are identifiers and values are SingleImage objects.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
