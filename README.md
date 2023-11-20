@@ -1,5 +1,3 @@
-
-<a name="readme-top"></a>
 <!-- PROJECT -->
 <br />
 <div align="center">
