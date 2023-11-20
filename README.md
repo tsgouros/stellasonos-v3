@@ -28,8 +28,6 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -39,7 +37,7 @@ Sonification of astronomical data version 3. In collaboration with scientists fr
 
 
 ### Built With
-[![React Native][React.js]][React-url]
+[React Native](https://reactnative.dev/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,7 +161,4 @@ Some other things to consider
 Yes, I'm thinking maybe a dictionary or map where keys are identifiers and values are SingleImage objects.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- MARKDOWN LINKS & IMAGES -->
-[React-url]: https://reactnative.dev/
 
