@@ -128,7 +128,32 @@ The following instructions have been adapted from [React Native’s documentatio
 
 <!-- Features -->
 ## Features 
-- to be completed 
+
+### Pages
+- `Home.js`: displays images as swipeable cards
+- `imagePage.js`: features an interactive image display where users can move a dot across the screen and view detailed information about the image in a pop-up window overlay
+- `Intro.js`: serves as a placeholder introductory screen, offering buttons to navigate to different pages like Home, Vibration, and Sound within the app.
+- `Placeholder.js`: shows the title of an image passed via navigation parameters and includes a button that allows the user to return to the previous screen in the app's navigation stack
+- `SoundConfig.json`: configuration settings for playing an audio file: it sets the initial volume to 0.5 (indicating a medium volume level) and provides a URL link to an MP3 audio file, pointing to a bassoon sound sample
+- `SoundHome.js`: Same as `Home.js` but for the sound section
+- `SoundPage.js`: displays an image and uses touch interactions to control audio playback, with functionality for playing, looping, and adjusting the volume of a sound file, as well as the same draggable dot for interaction as in `imagePage.js`.
+- `VibrationPage.js`: experimenting with different vibration patterns but is still a work in progres
+
+### Utils 
+#### data_processing
+- `Constants.js`: exports a Constants object which contains configuration settings for audio playback, such as note durations and volumes, parameters for edge detection in image processing, definitions of musical instruments and their mappings to specific image layers, user interface instructions, and device-specific settings based on the user's operating system
+- `EdgeDetection.js`: perform edge detection on images using the OpenCV library, storing and providing access to the resulting edge data.
+- `FuseSearch.js`: implements a text search feature for a collection of images. It utilizes the Fuse.js library to search through image titles and descriptions based on user input. If the input is empty, it returns all images. Otherwise, it returns a list of images that match the search query.
+- `Images.json`: This is how it's set up.
+    1. src: The URL of the image.
+    2. title: The title of the image.
+    3. description: A brief description of the image.
+    4. url: A URL with more information about the image.
+    5. id: A unique identifier for the image.
+    6. layers: An array of objects representing different layers or aspects of the image, each with its own source URL, identifier, and layer type.
+    7. soundEffects: An object containing different sound effect configurations for the image, detailing various audio processing settings like pitch shift, distortion, tremolo, and reverb, as well as haptic feedback settings for different image layers.
+- `Images_test.json`: same setup as `Images.json` but for testing. 
+- `ImageSegmentation.js`: provides utility functions for manipulating OpenCV image processing results like converting output arrays to binary indices representing black and white pixels, and computing weighted averages of RGB values
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
