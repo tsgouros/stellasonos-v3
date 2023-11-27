@@ -172,8 +172,7 @@ Some other things to consider
 - [ ] setImageVisibility(key, isVisible) - Sets the visibility of a specific image
    - [ ] isVisible: Boolean to show or hide the image.
 
-" I imagine this MultiImage object would work best as managing a collection of comparable SingleImage objects with similar methods that don't require the 'key' argument."
-Yes, I'm thinking maybe a dictionary or map where keys are identifiers and values are SingleImage objects.
+" I imagine this MultiImage object would work best as managing a collection of comparable SingleImage objects with similar methods that don't require the 'key' argument." - Sure
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
