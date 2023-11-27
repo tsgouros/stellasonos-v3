@@ -14,15 +14,12 @@ import {
 import { Dimensions } from "react-native";
 import { Button } from "@rneui/base";
 import { Player } from "@react-native-community/audio-toolkit";
-import soundconfig from "./SoundConfig.json"
 
-const config1 = {
-  initialVolume: 0.5,
-  mp3Url: "https://stellasonos-files.vercel.app/samples/bassoon/G1.mp3",
-};
-
-export default function SoundPage({ route, navigation, config }) {
-  const { image, name } = route.params;
+export default function SoundPage({ route, navigation }) {
+  const image = route.params.image;
+  const soundconfig = route.params.soundconfig;
+  // Uncomment the line below to check that sound config JSON is being passed in from App.js properly
+  //console.log("SoundPage routeParams:", route.params);
 
   const pan = useRef(new Animated.ValueXY()).current;
   const [currentX, setCurrentX] = useState(0);
@@ -30,7 +27,6 @@ export default function SoundPage({ route, navigation, config }) {
   const [sound, setSound] = useState(null);
 
   const xPadding = 45;
-  console.log("Config JSON:", soundconfig);
 
   // The looping feature that comes with the audio toolkit is inadequate because it leaves a dead air gap.
   // We'll set that looping setting to false and do our own version of looping.
@@ -52,7 +48,7 @@ export default function SoundPage({ route, navigation, config }) {
     mixWithOthers: true,
   }).prepare((err) => {
     if (err) {
-      console.log("error in player2:");
+      console.log("error in player2: ");
       console.log(err);
     } else {
       playerTwo.looping = false;
@@ -61,8 +57,9 @@ export default function SoundPage({ route, navigation, config }) {
 
   // Start two overlapping looped players.
   async function playReal() {
+    
     playSteppedSound(playerOne, "one", 1.0);
-    console.log("waiting", playerOne.duration / 2, "ms to play two");
+    //console.log("waiting", playerOne.duration / 2, "ms to play two");
     playerID["two"] = setTimeout(() => {
       playSteppedSound(playerTwo, "two", 1.0);
     }, playerOne.duration / 2);
@@ -80,16 +77,16 @@ export default function SoundPage({ route, navigation, config }) {
     player.play((err) => {
       if (err) {
         console.log(
-          "error playing:",
-          id,
-          "volume",
+          "error playing: playerID",
+          id, "; PLAYER: ",player,
+          "; volume",
           playerVol,
-          "state",
+          "; state",
           player.state
         );
-        console.log(err);
+        console.log("ERROR in PLAYSTEPPEDSOUND: ", err);
       } else {
-        console.log("playing", id, "volume", playerVol, "state", player.state);
+        //console.log("playing", id, "volume", playerVol, "state", player.state);
       }
     });
 
@@ -132,7 +129,7 @@ export default function SoundPage({ route, navigation, config }) {
 
   // Set the player volume, in all the places it should be set.
   async function setPlayerVolume(newVolume) {
-    console.log("set volume to", newVolume);
+    //console.log("set volume to", newVolume);
     playerVol = newVolume;
     playerOne.volume = newVolume;
     playerTwo.volume = newVolume;
@@ -141,13 +138,13 @@ export default function SoundPage({ route, navigation, config }) {
   async function playSoundToolkit() {
     try {
       playerOne.play();
-      console.log("playing playerOne");
+      //console.log("playing playerOne");
       // Start a second sound to play, but it only plays if
       // playerOne lasts more than 5s.
       setTimeout(() => {
         if (playerOne.isPlaying) {
           playerTwo.play();
-          console.log("playing playerTwo");
+          //console.log("playing playerTwo");
         }
       }, 5000);
     } catch (e) {
@@ -155,9 +152,42 @@ export default function SoundPage({ route, navigation, config }) {
     }
   }
 
+  async function playPause(player) {
+    if (player.duration <= 0) {
+      return;
+    }
+  
+    player.playPause((err, paused) => {
+      if (err) {
+        // Handle the error, perhaps by setting state or logging it
+        console.error(err.message);
+      }
+    });
+  }
+  
+  const stopBothPlayers = () => {
+    playPause(playerOne);
+    playPause(playerTwo);
+  };
+
   // When stopping, we not only have to stop the players from
   // playing, but we also have to stop the asynchronous (setTimeout)
   // requests that might be lurking to restart the players.
+  // async function stopSoundToolkit() {
+  //   console.log(
+  //     "stopping everything, including",
+  //     playerID["one"],
+  //     "and",
+  //     playerID["two"]
+  //   );
+  //   playerOne.stop();
+  //   playerTwo.stop();
+  //   clearTimeout(playerID["one"]);
+  //   clearTimeout(playerID["two"]);
+  //   playerID["one"] = 0;
+  //   playerID["two"] = 0;
+  // }
+
   async function stopSoundToolkit() {
     console.log(
       "stopping everything, including",
@@ -167,50 +197,89 @@ export default function SoundPage({ route, navigation, config }) {
     );
     playerOne.stop();
     playerTwo.stop();
+  
+    // Clear all volume change timeouts
+    for (const id in playerID) {
+      if (id !== "one" && id !== "two" && playerID[id] !== 0) {
+        clearTimeout(playerID[id]);
+        playerID[id] = 0;
+      }
+    }
+  
     clearTimeout(playerID["one"]);
-    playerID["one"] = 0;
     clearTimeout(playerID["two"]);
+    playerID["one"] = 0;
     playerID["two"] = 0;
   }
+  
 
   // calculating actual width and height of touch area
+  // const xMax = Dimensions.get("window").width / 2 - xPadding;
+  // const yMax = Dimensions.get("window").height / 6 + 125;
+
+  // const panResponder = useRef(
+  //   PanResponder.create({
+  //     onMoveShouldSetPanResponder: () => true,
+  //     onStartShouldSetPanResponderCapture: () => true,
+  //     onPanResponderGrant: (e, r) => {
+  //       // prevent the dot from moving out of bounds
+  //       pan.setOffset({
+  //         x:
+  //           pan.x._value > xMax
+  //             ? xMax
+  //             : pan.x._value < -xMax
+  //             ? -xMax
+  //             : pan.x._value,
+  //         y:
+  //           pan.y._value > yMax
+  //             ? yMax
+  //             : pan.y._value < -yMax
+  //             ? -yMax
+  //             : pan.y._value,
+  //       });
+  //     },
+  //     onPanResponderMove: Animated.event([null, { dx: pan.x, dy: pan.y }], {
+  //       useNativeDriver: false,
+  //       onPanResponderRelease: (event, gestureState) => {
+  //         //After the change in the location
+  //       },
+  //     }),
+  //     onPanResponderRelease: (e, r) => {
+  //       pan.flattenOffset();
+  //       setCurrentY(pan.y._value);
+  //       setCurrentX(pan.x._value);
+  //     },
+  //   })
+  // ).current;
   const xMax = Dimensions.get("window").width / 2 - xPadding;
   const yMax = Dimensions.get("window").height / 6 + 125;
-
+  
   const panResponder = useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: () => true,
       onStartShouldSetPanResponderCapture: () => true,
-      onPanResponderGrant: (e, r) => {
-        // prevent the dot from moving out of bounds
+      onPanResponderGrant: () => {
         pan.setOffset({
-          x:
-            pan.x._value > xMax
-              ? xMax
-              : pan.x._value < -xMax
-              ? -xMax
-              : pan.x._value,
-          y:
-            pan.y._value > yMax
-              ? yMax
-              : pan.y._value < -yMax
-              ? -yMax
-              : pan.y._value,
+          x: pan.x._value,
+          y: pan.y._value,
         });
       },
-      onPanResponderMove: Animated.event([null, { dx: pan.x, dy: pan.y }], {
-        useNativeDriver: false,
-        onPanResponderRelease: (event, gestureState) => {
-          //After the change in the location
-        },
-      }),
-      onPanResponderRelease: (e, r) => {
+      onPanResponderMove: Animated.event(
+        [null, { dx: pan.x, dy: pan.y }],
+        {
+          useNativeDriver: false,
+          listener: (event, gestureState) => {
+            const newX = Math.min(Math.max(pan.x._value, -xMax), xMax);
+            const newY = Math.min(Math.max(pan.y._value, -yMax), yMax);
+            pan.setValue({ x: newX, y: newY });
+          },
+        }
+      ),
+      onPanResponderRelease: () => {
         pan.flattenOffset();
-        setCurrentY(pan.y._value);
-        setCurrentX(pan.x._value);
       },
     })
   ).current;
+
 
   // update current x and y values in the state for later
   pan.x.addListener(({ value }) => {
@@ -229,6 +298,7 @@ export default function SoundPage({ route, navigation, config }) {
         : currentX + delta;
     pan.setValue({ x: newX, y: currentY });
   };
+
   const handleY = (delta) => {
     var newY =
       currentY + delta > yMax
@@ -240,6 +310,7 @@ export default function SoundPage({ route, navigation, config }) {
   };
 
   const [modalVisible, setModalVisible] = useState(false);
+
 
   return (
     <View style={styles.container}>
@@ -269,7 +340,7 @@ export default function SoundPage({ route, navigation, config }) {
         </View>
       </Modal>
       <View style={styles.container}>
-        {/* Preventing the dot from going out of bounds       */}
+        {/* Preventing the dot from going out of bounds------- */}
         <Animated.View
           style={{
             transform: [
@@ -305,11 +376,9 @@ export default function SoundPage({ route, navigation, config }) {
             setPlayerVolume(event.nativeEvent.locationX / 150);
 
             /*
-
             Where the actual motion is taking place
-
             */
-            playReal();
+            playSoundToolkit();
           }}
         >
           <ImageBackground

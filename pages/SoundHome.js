@@ -1,16 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { Image, Text, View } from 'react-native';
-import Swiper from 'react-native-deck-swiper';
+import { StatusBar } from "expo-status-bar";
+import { Image, Text, View } from "react-native";
+import Swiper from "react-native-deck-swiper";
 import React from "react";
+import { ContainerStyles, ImageStyles, TextStyles } from "../utils/styles";
+import images from "../images.json";
 
-// Utils and other pages
-import { ContainerStyles, ImageStyles, TextStyles } from '../utils/styles';
+export default function SoundHome({ route, navigation }) {
+  const soundconfig = route.params.soundconfig;
+  console.log("SoundHome initParams: ", route.params);
 
-// Images from JSON
-import images from '../images.json';
-import soundconfig from "./SoundConfig.json"
-
-export default function SoundHome({ navigation }) {
   var cards = [];
   for (var i = 0; i < images.images.length; i++) {
     cards.push(buildCard(images.images[i]));
@@ -21,20 +19,36 @@ export default function SoundHome({ navigation }) {
       <Swiper
         cards={cards}
         renderCard={(card) => {
-          return (
-            <View style={ContainerStyles.defaultCard}>
-              {card}
-            </View>
-          )
+          return <View style={ContainerStyles.defaultCard}>{card}</View>;
         }}
-        onSwipedAll={() => {console.log('All cards have been swiped.')}}
-        onSwipedRight={(cardIndex) => {navigateToSoundPage(images.images[cardIndex], navigation)}}
-        onSwipedTop={(cardIndex) => {navigateToSoundPage(images.images[cardIndex], navigation)}}
-        onTapCard={(cardIndex) => {navigateToSoundPage(images.images[cardIndex], navigation)}}
+        onSwipedAll={() => {
+          console.log("All cards have been swiped.");
+        }}
+        onSwipedRight={(cardIndex) => {
+          navigateToSoundPage(
+            images.images[cardIndex],
+            navigation,
+            soundconfig
+          );
+        }}
+        onSwipedTop={(cardIndex) => {
+          navigateToSoundPage(
+            images.images[cardIndex],
+            navigation,
+            soundconfig
+          );
+        }}
+        onTapCard={(cardIndex) => {
+          navigateToSoundPage(
+            images.images[cardIndex],
+            navigation,
+            soundconfig
+          );
+        }}
         // Do we actually want onTapCard to do something? (What if user accidentally taps?)
         // TODO: Add a button to the bottom of the card stack to "Reload all cards and start over"
         cardIndex={0}
-        backgroundColor={'#FFF'}
+        backgroundColor={"#FFF"}
         stackSize={3}
       />
       <StatusBar style="auto" />
@@ -46,12 +60,13 @@ function buildCard(image) {
   return (
     <View style={ContainerStyles.defaultContainer}>
       <Text style={TextStyles.blackTextMedium}>{image.title}</Text>
-      <Image style={ImageStyles.defaultImage} source= {{uri: image.src}} />
+      <Image style={ImageStyles.defaultImage} source={{ uri: image.src }} />
     </View>
-  )
+  );
 }
 
-function navigateToSoundPage(image, navigation) {
-  navigation.navigate('SoundPage', { image: image, config: soundconfig });
-  console.log('Navigating to Image page with image: ' + image.title);
+function navigateToSoundPage(image, navigation, soundconfig) {
+  navigation.navigate("SoundPage", { image: image, soundconfig: soundconfig });
+  console.log("Navigating to Image page with image: " + image.title);
+  console.log("NavigateToSoundPage Config file:", soundconfig);
 }
