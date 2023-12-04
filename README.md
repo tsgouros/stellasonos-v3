@@ -169,8 +169,10 @@ Create an multiobject that manages an "image" made up of several different image
 - [ ] `returnImageData( key )` Returns a binary version of the given image, to be used by the sound and haptic generation functions.
 
 Some other things to consider 
-- [ ] setImageVisibility(key, isVisible) - Sets the visibility of a specific image
-   - [ ] isVisible: Boolean to show or hide the image.
+- Image should be resized accordingly if needed
+- The segmented image output should be displayed onto the canvas directly
+  
+- May also need to look at how React Native handles canvases (me)
 
 " I imagine this MultiImage object would work best as managing a collection of comparable SingleImage objects with similar methods that don't require the 'key' argument." - Sure
 
