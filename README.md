@@ -171,6 +171,7 @@ Create an multiobject that manages an "image" made up of several different image
 Some other things to consider 
 - Image should be resized accordingly if needed
 - The segmented image output should be displayed onto the canvas directly
+- Test with a similar set up as the images.json
   
 - May also need to look at how React Native handles canvases (me)
 
