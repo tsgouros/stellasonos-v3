@@ -29,6 +29,7 @@
     "react-native-custom-haptics": "^1.0.1",
     "react-native-deck-swiper": "^2.0.10",
     "react-native-gesture-handler": "~2.5.0",
+    "react-native-haptic-feedback": "^2.2.0",
     "react-native-popup-dialog": "^0.18.3",
     "react-native-reanimated": "^3.0.2",
     "react-native-safe-area-context": "^4.5.0",

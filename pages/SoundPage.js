@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Animated,
   View,
@@ -15,7 +15,95 @@ import { Dimensions } from "react-native";
 import { Button } from "@rneui/base";
 import { Player } from "@react-native-community/audio-toolkit";
 
+import {TouchableOpacity } from "react-native";
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
+
+
 export default function SoundPage({ route, navigation }) {
+  // vibration _______________________________________________________
+  // https://www.npmjs.com/package/react-native-haptic-feedback
+  // strings to go in ReactNativeHapticFeedback.trigger("...") that work for android and ios:
+  // impactHeavy, impactMedium, impactLight, rigid, soft, notificationSuccess, notificationWarning
+  // notifiationError 
+
+  const ONE_SECOND_IN_MS = 1000;
+
+  const PATTERN1 = [100, 10, 100, 10, 100, 10, 100, 10, 100];
+  const PATTERN2 = [550, 550];
+  const PATTERN3 = [10, 0.1, 10, 0.1, 10,0.1, 10, 0.1, 10, 0.1, 10, 0.1, 10, 0.1];
+  const PATTERN = [
+    1 * 1000,
+    2 * 1000,
+    3 * 1000
+  ];
+  // ________________________________________________
+  const VIBRATION_DURATION = 100; // Adjust the duration as needed
+
+  let intervalId = null;
+
+  const handlePressIn = () => {
+    console.log("v");
+    //console.log("location x: " + event.nativeEvent.locationX - xMax - 20)
+    clearInterval();
+    intervalId = setInterval(() => {
+      ReactNativeHapticFeedback.trigger('impactHeavy', {
+        enableVibrateFallback: false,
+        ignoreAndroidSystemSettings: true,
+      });
+      //ReactNativeHapticFeedback.trigger("impactHeavy");
+    }, VIBRATION_DURATION);
+  };
+
+  const handlePressOut = () => {
+    console.log("end v");
+    if (intervalId != null) {
+      clearInterval(intervalId);
+    }
+  };
+  // __________________________________________
+
+  function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function wiggle(pattern, style) { // was async
+    for (let i = 0; i < pattern.length; i++) {
+      if (style === "impactLight") {
+        ReactNativeHapticFeedback.trigger('impactLight', {
+          enableVibrateFallback: false,
+          ignoreAndroidSystemSettings: true,
+        });
+        //ReactNativeHapticFeedback.trigger("impactLight");
+        await delay(pattern[i]); // was await
+      }
+      if (style === "impactMedium") {
+        ReactNativeHapticFeedback.trigger('impactMedium', {
+          enableVibrateFallback: false,
+          ignoreAndroidSystemSettings: true,
+        });
+        //ReactNativeHapticFeedback.trigger("impactMedium");
+        await delay(pattern[i]);
+      }
+
+      if (style === "impactHeavy") {
+        ReactNativeHapticFeedback.trigger('impactHeavy', {
+          enableVibrateFallback: false,
+          ignoreAndroidSystemSettings: true,
+        });
+        //ReactNativeHapticFeedback.trigger("impactHeavy");
+        await delay(pattern[i]);
+      }
+    }
+  }
+
+  // //wiggle([1, 1, 3], h, notification, type)
+  // const { trigger, stop } = useHaptics();
+  // React.useEffect(() => {
+  //   // stops the haptic pattern on cleanup
+  //   return () => stop();
+  // }, []);
+  // end vibration_______________________________________________
+
   const image = route.params.image;
   const soundconfig = route.params.soundconfig;
   // Uncomment the line below to check that sound config JSON is being passed in from App.js properly
@@ -253,32 +341,85 @@ export default function SoundPage({ route, navigation }) {
   // ).current;
   const xMax = Dimensions.get("window").width / 2 - xPadding;
   const yMax = Dimensions.get("window").height / 6 + 125;
-  
+  const [canTriggerVibration, setCanTriggerVibration] = useState(true);
   const panResponder = useRef(
     PanResponder.create({
-      onStartShouldSetPanResponderCapture: () => true,
-      onPanResponderGrant: () => {
-        pan.setOffset({
-          x: pan.x._value,
-          y: pan.y._value,
-        });
-      },
-      onPanResponderMove: Animated.event(
-        [null, { dx: pan.x, dy: pan.y }],
-        {
-          useNativeDriver: false,
-          listener: (event, gestureState) => {
-            const newX = Math.min(Math.max(pan.x._value, -xMax), xMax);
-            const newY = Math.min(Math.max(pan.y._value, -yMax), yMax);
-            pan.setValue({ x: newX, y: newY });
-          },
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: (event, gestureState) => {
+        // Handle the continuous movement here
+        const { moveX, moveY } = gestureState;
+        console.log('X:', moveX, 'Y:', moveY);
+        // Adjust vibration intensity based on moveX and moveY
+        //const vibrationIntensity = calculateVibrationIntensity(moveX, moveY);
+
+        // Trigger haptic feedback
+        if (canTriggerVibration) {
+          if (moveX < 100) {
+            setCanTriggerVibration(false);
+            ReactNativeHapticFeedback.trigger('impactLight', {
+              enableVibrateFallback: false,
+              ignoreAndroidSystemSettings: true,
+            });
+          } else {
+            setCanTriggerVibration(false);
+            ReactNativeHapticFeedback.trigger('impactHeavy', {
+              enableVibrateFallback: false,
+              ignoreAndroidSystemSettings: true,
+            });
+          }
         }
-      ),
-      onPanResponderRelease: () => {
-        pan.flattenOffset();
+        // ReactNativeHapticFeedback.trigger('impactHeavy', {
+        //   enableVibrateFallback: false,
+        //   ignoreAndroidSystemSettings: true,
+        // });
       },
     })
   ).current;
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCanTriggerVibration(true);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [canTriggerVibration]);
+  // const panResponder = useRef(
+  //   PanResponder.create({
+  //     onStartShouldSetPanResponderCapture: () => true,
+  //     onPanResponderGrant: () => {
+  //       pan.setOffset({
+  //         x: pan.x._value,
+  //         y: pan.y._value,
+  //       });
+  //     },
+  //     onPanResponderMove: Animated.event(
+  //       [null, { dx: pan.x, dy: pan.y }],
+  //       {
+  //         useNativeDriver: false,
+  //         listener: (event, gestureState) => {
+  //           const newX = Math.min(Math.max(pan.x._value, -xMax), xMax);
+  //           const newY = Math.min(Math.max(pan.y._value, -yMax), yMax);
+  //           pan.setValue({ x: newX, y: newY });
+  //           // Check X-axis position and trigger vibration patterns
+  //           //if (newX > xThreshold) {
+  //           // Check X-axis distance moved
+  //           //const distanceMoved = Math.abs(newX - pan.x._offset);
+
+  //           // Trigger haptic feedback if the distance threshold is exceeded
+  //           //if (distanceMoved >= 50) {
+  //           //handlePressIn();
+  //           //   console.log("Vibrate!");
+  //           // }
+  //           console.log("new x  " + newX);
+  //         },
+  //       }
+  //     ),
+  //     onPanResponderRelease: () => {
+  //       pan.flattenOffset();
+  //       //handlePressOut();
+  //     },
+  //   })
+  // ).current;
 
 
   // update current x and y values in the state for later
@@ -341,7 +482,7 @@ export default function SoundPage({ route, navigation }) {
       </Modal>
       <View style={styles.container}>
         {/* Preventing the dot from going out of bounds------- */}
-        <Animated.View
+        {/* <Animated.View
           style={{
             transform: [
               {
@@ -363,30 +504,116 @@ export default function SoundPage({ route, navigation }) {
           {...panResponder.panHandlers}
         >
           <View style={styles.circle} />
-        </Animated.View>
+        </Animated.View> */}
+        <TouchableOpacity
+        style={styles.imageContainer}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+        //activeOpacity={1} // To remove the default opacity effect
+      >
         <View
           style={styles.imageContainer}
-          onStartShouldSetResponder={() => true}
-          onResponderMove={(event) => {
-            pan.setValue({
-              x: event.nativeEvent.locationX - xMax - 20,
-              y: event.nativeEvent.locationY - yMax - 20,
-            });
-
-            setPlayerVolume(event.nativeEvent.locationX / 150);
+          {...panResponder.panHandlers}
+          //onStartShouldSetResponder={() => true}
+          // onResponderMove={(event) => {
+          //   pan.setValue({
+          //     x: event.nativeEvent.locationX - xMax - 20,
+          //     y: event.nativeEvent.locationY - yMax - 20,
+          //   });
+            
+          //   ReactNativeHapticFeedback.trigger('impactHeavy', {
+          //     enableVibrateFallback: false,
+          //     ignoreAndroidSystemSettings: true,
+          //   });
+            // add to new panhandler onmove
+            // setPlayerVolume(event.nativeEvent.locationX / 150);
 
             /*
             Where the actual motion is taking place
             */
-            playSoundToolkit();
-          }}
+            //playSoundToolkit();
+          //}}
         >
+         
           <ImageBackground
             style={styles.tinyLogo}
             source={{ uri: image.src }}
           ></ImageBackground>
+          
         </View>
+        </TouchableOpacity>
       </View>
+
+      {/* <Text style={[styles.header, styles.paragraph]}>Cool Vibes!</Text>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
+        <View style={{ padding: 5 }}>
+          <Text style={{ width: 75, textAlign: "center", color: "black" }}>PATTERN 1</Text>
+        </View>
+        <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
+      </View>
+      <View style={styles.impactRow}>
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with heavy impact pattern"
+          onPress={() =>
+            wiggle(PATTERN1, "impactHeavy")
+          }
+        >
+          <View style={styles.squareHI} />
+          <Text style={{ fontSize: 10, color: "black" }}>Heavy Impact</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() =>
+            wiggle(PATTERN1, "impactMedium")
+          }
+        >
+          <View style={styles.squareMI} />
+          <Text style={{ fontSize: 10, color: "black" }}>Medium Impact</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.centered}
+          title="Vibrate with trigger"
+          onPress={() =>
+            wiggle(PATTERN1, "impactLight")
+          }
+        >
+          <View style={styles.squareLI} />
+          <Text style={{ fontSize: 10, color: "black" }}>Light Impact</Text>
+        </TouchableOpacity>
+
+        {/* <TouchableOpacity
+          style={styles.centered}
+          onPress={() =>
+            wiggle(
+              PATTERN1,
+              Haptics.NotificationFeedbackType.Warning,
+              "selection"
+            )
+          }
+        >
+          <View style={styles.squareSP} />
+          <Text style={{ fontSize: 10 }}>Selection Pattern</Text>
+        </TouchableOpacity>
+      </View> */}
+
+      {/* ----------------------------------------------------------------------- */}
+
+      {/* <View style={styles.impactRow2}>
+        <TouchableOpacity
+          style={styles.centered}
+          onPressIn={handlePressIn}
+          onPressOut={handlePressOut}
+
+        >
+          <View style={styles.rectTouch} />
+          <Text style={{ fontSize: 10, color: "black" }}>Touch or touch and drag to vibrate</Text>
+        </TouchableOpacity>
+        </View> */}
 
       {
         <View style={styles.toolBar}>
